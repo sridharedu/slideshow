@@ -58,6 +58,19 @@ const slides = [
             "💡 Use `thenCompose()` to avoid nested futures (`Future<Future<T>>`)",
             "🔥 Interview Tip: Emphasize how this enables high-throughput systems with minimal thread blocking"
         ]
+    },
+    {
+        title: "Thread Leaks in CompletableFuture",
+        points: [
+            "Using `supplyAsync()` on a custom executor requires you to shut it down!",
+            "```java",
+            "ExecutorService pool = Executors.newFixedThreadPool(5);",
+            "CompletableFuture.runAsync(task, pool);",
+            "pool.shutdown(); // ← don't forget",
+            "```",
+            "🔥 Tip: Forgetting shutdown leads to memory leaks in long-running apps"
+        ],
+        note: "Mention the incident in our booking microservice where thread leak caused OOM after a week"
     }
 ];
 
@@ -68,16 +81,11 @@ const SlideWrapper = () => {
     // keyboard navigation
     useEffect(() => {
         const handleKey = (e) => {
-            if (
-                e.key === "ArrowRight" ||
-                e.key === " " ||
-                e.key === "d"
-            ) {
+            if (["ArrowRight", " ", "d"].includes(e.key)) {
+                e.preventDefault();
                 setCurrent((c) => Math.min(c + 1, slides.length - 1));
-            } else if (
-                e.key === "ArrowLeft" ||
-                e.key === "a"
-            ) {
+            } else if (["ArrowLeft", "a"].includes(e.key)) {
+                e.preventDefault();
                 setCurrent((c) => Math.max(c - 1, 0));
             }
         };
@@ -177,6 +185,23 @@ const SlideWrapper = () => {
                 </h2>
 
                 {renderSlideContent(slide.points)}
+
+                {/* 🔽 NOTE support added here */}
+                {slide.note && (
+                    <div
+                        style={{
+                            marginTop: "1.75rem",
+                            padding: "1rem 1.25rem",
+                            background: "#fef3c7",
+                            color: "#92400e",
+                            fontSize: "0.95rem",
+                            borderLeft: "4px solid #f59e0b",
+                            borderRadius: "6px"
+                        }}
+                    >
+                        📝 <strong>Note:</strong> {slide.note}
+                    </div>
+                )}
 
                 <div
                     style={{
