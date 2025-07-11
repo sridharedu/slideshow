@@ -1,18 +1,11 @@
 import React, { useState } from 'react';
 import LandingPage from './LandingPage';
-import CompletableFutureSlides from './ForEachSlides';
-import ObjectsInJavaSlides from './objectsInJavaSlides';
-
-const components = {
-  CompletableFutureSlides,
-  ObjectsInJavaSlides
-};
+import SlidePresentation from './SlidePresentation';
 
 function App() {
   const [selectedDeck, setSelectedDeck] = useState(null);
   
   if (selectedDeck) {
-    const Component = components[selectedDeck];
     return (
       <div>
         <button 
@@ -32,7 +25,7 @@ function App() {
         >
           ← Back
         </button>
-        <Component />
+        <SlidePresentation deckId={selectedDeck} />
       </div>
     );
   }

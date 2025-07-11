@@ -1,7 +1,28 @@
-import React from 'react';
-import { slideDecks } from './slideConfig';
+import React, { useState, useEffect } from 'react';
+import { loadSlideDecks } from './slidesData';
 
 const LandingPage = ({ onSelectDeck }) => {
+    const [slideDecks, setSlideDecks] = useState({});
+    const [loading, setLoading] = useState(true);
+    
+    useEffect(() => {
+        loadSlideDecks()
+            .then(setSlideDecks)
+            .finally(() => setLoading(false));
+    }, []);
+    
+    if (loading) {
+        return (
+            <div style={{
+                minHeight: '100vh',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                fontSize: '1.2rem'
+            }}>Loading presentations...</div>
+        );
+    }
+    
     return (
         <div style={{
             minHeight: '100vh',
@@ -44,10 +65,10 @@ const LandingPage = ({ onSelectDeck }) => {
                     gap: '1.5rem',
                     gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))'
                 }}>
-                    {slideDecks.map(deck => (
+                    {Object.entries(slideDecks).map(([deckId, deck]) => (
                         <div
-                            key={deck.id}
-                            onClick={() => onSelectDeck(deck.component)}
+                            key={deckId}
+                            onClick={() => onSelectDeck(deckId)}
                             style={{
                                 padding: '2rem',
                                 border: '1px solid #e5e7eb',
