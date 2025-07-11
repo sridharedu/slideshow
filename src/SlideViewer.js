@@ -19,15 +19,67 @@ const SlideViewer = ({ slides }) => {
     }, [slides.length]);
 
     const isCode = (line) => line.trim().startsWith("```");
+    const isTable = (line) => line.trim().startsWith("```table");
 
     const renderSlideContent = (points) => {
         let output = [];
         let buffer = [];
         let inCode = false;
+        let inTable = false;
 
         for (let i = 0; i < points.length; i++) {
             const line = points[i];
-            if (isCode(line)) {
+            if (isTable(line)) {
+                inTable = true;
+                buffer = [];
+            } else if (inTable && line.trim() === "```") {
+                const rows = buffer.filter(row => row.trim());
+                const [header, ...dataRows] = rows;
+                
+                output.push(
+                    <table
+                        key={`table-${i}`}
+                        style={{
+                            width: "100%",
+                            borderCollapse: "collapse",
+                            marginBottom: "1.25rem",
+                            border: "1px solid #e2e8f0",
+                            borderRadius: "8px",
+                            overflow: "hidden"
+                        }}
+                    >
+                        <thead>
+                            <tr style={{ background: "#f8fafc" }}>
+                                {header.split('|').map((cell, idx) => (
+                                    <th key={idx} style={{
+                                        padding: "0.75rem",
+                                        textAlign: "left",
+                                        fontWeight: "600",
+                                        borderBottom: "2px solid #e2e8f0"
+                                    }}>
+                                        {cell.trim()}
+                                    </th>
+                                ))}
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {dataRows.map((row, rowIdx) => (
+                                <tr key={rowIdx}>
+                                    {row.split('|').map((cell, cellIdx) => (
+                                        <td key={cellIdx} style={{
+                                            padding: "0.75rem",
+                                            borderBottom: "1px solid #f1f5f9"
+                                        }}>
+                                            {cell.trim()}
+                                        </td>
+                                    ))}
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                );
+                inTable = false;
+            } else if (isCode(line)) {
                 if (!inCode) {
                     inCode = true;
                     buffer = [];
@@ -51,29 +103,27 @@ const SlideViewer = ({ slides }) => {
                     );
                     inCode = false;
                 }
-            } else if (inCode) {
+            } else if (inCode || inTable) {
                 buffer.push(line);
             } else {
                 output.push(
-                    <li
-                        key={`text-${i}`}
-                        style={{
-                            fontSize: "1rem",
-                            marginBottom: "0.75rem",
-                            lineHeight: "1.65",
-                            color: "#374151"
-                        }}
-                    >
-                        {line}
-                    </li>
+                    <div key={`text-${i}`} style={{
+                        fontSize: "1rem",
+                        marginBottom: "0.75rem",
+                        lineHeight: "1.65",
+                        color: "#374151",
+                        paddingLeft: "1.25rem"
+                    }}>
+                        • {line}
+                    </div>
                 );
             }
         }
 
         return (
-            <ul style={{ paddingLeft: "1.25rem", marginTop: "1rem", listStyleType: "disc" }}>
+            <div style={{ marginTop: "1rem" }}>
                 {output}
-            </ul>
+            </div>
         );
     };
 

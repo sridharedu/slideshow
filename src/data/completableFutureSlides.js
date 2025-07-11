@@ -1,73 +1,137 @@
 export const completableFutureSlides = [
     {
-        title: "Returning a Value with CompletableFuture",
+        title: "What is CompletableFuture?",
         points: [
-            "Think of `CompletableFuture.supplyAsync()` as assigning a task to a background worker, and continuing without waiting.",
+            "✔️ Java 8+ async programming API",
+            "Represents a future result of async computation",
+            "Implements `Future` + `CompletionStage` interfaces",
+            "🔥 Non-blocking alternative to traditional `Future.get()`"
+        ],
+        note: "🧠 CompletableFuture = Future + callback chaining + composition"
+    },
+    {
+        title: "Creating CompletableFuture",
+        points: [
+            "`CompletableFuture.supplyAsync(() -> getValue())` → with return value",
+            "`CompletableFuture.runAsync(() -> doWork())` → no return value",
+            "`CompletableFuture.completedFuture(value)` → already completed",
+            "🔥 supplyAsync for data, runAsync for side effects"
+        ]
+    },
+    {
+        title: "Basic Example",
+        points: [
             "```java",
             "CompletableFuture<String> future = CompletableFuture.supplyAsync(() -> {",
-            "    simulateLatency();",
-            "    return fetchWelcomeMessage();",
+            "    // Simulate API call",
+            "    Thread.sleep(1000);",
+            "    return \"Hello World\";",
             "});",
             "",
-            "// avoid blocking in real apps — shown here just for demo:",
+            "// Non-blocking - continues immediately",
+            "System.out.println(\"Task started...\");",
+            "",
+            "// Get result (blocks here)",
             "String result = future.get();",
-            "System.out.println(\"Response: \" + result);",
-            "```",
-            "`supplyAsync()` is ideal when a result is expected — e.g., fetching data from an external API, DB, or file.",
-            "In production, prefer chaining with `.thenApply()` or `.thenCompose()` instead of blocking with `.get()`.",
-            "🔥 Interview tip: mention how it frees up threads and avoids wasting CPU cycles while waiting on IO."
+            "```"
         ]
     },
     {
-        title: "Why Async Helps: Thread vs CPU Waste",
+        title: "Chaining with thenApply",
         points: [
-            "In a traditional blocking model:",
-            "- A thread makes an IO call (e.g., DB/API)",
-            "- It waits (blocked), doing nothing — but still occupies memory and thread stack",
-            "",
-            "With `CompletableFuture.supplyAsync()`:",
-            "- The task runs on a separate thread pool",
-            "- The main thread is **freed up** to serve other requests",
-            "- Better CPU utilization, higher throughput",
-            "",
-            "🔥 Pro Tip:",
-            "Use async to handle IO-bound workloads (e.g., file, DB, API), not CPU-heavy ones",
-            "Combine multiple async calls using `thenCombine()` or `thenCompose()` to build scalable flows"
-        ]
-    },
-    {
-        title: "Combining Async Calls in CompletableFuture",
-        points: [
-            "`thenCompose()` → for chaining dependent tasks (result of one feeds into the next)",
-            "`thenCombine()` → for running tasks in parallel and merging results",
-            "",
+            "`thenApply()` → transform result when complete",
             "```java",
-            "CompletableFuture<User> userFuture = getUserAsync();",
-            "CompletableFuture<Address> addrFuture = getAddressAsync();",
-            "",
-            "// Combine unrelated tasks",
-            "CompletableFuture<UserProfile> profileFuture = userFuture.thenCombine(addrFuture,",
-            "    (user, addr) -> new UserProfile(user, addr));",
-            "",
-            "// Chain dependent tasks",
-            "CompletableFuture<Order> orderFuture = getUserIdAsync()",
-            "    .thenCompose(this::getOrderForUser);",
+            "CompletableFuture<Integer> future = CompletableFuture",
+            "    .supplyAsync(() -> \"42\")",
+            "    .thenApply(Integer::parseInt)",
+            "    .thenApply(x -> x * 2);",
             "```",
-            "💡 Use `thenCompose()` to avoid nested futures (`Future<Future<T>>`)",
-            "🔥 Interview Tip: Emphasize how this enables high-throughput systems with minimal thread blocking"
+            "🔥 Chain multiple transformations without blocking"
         ]
     },
     {
-        title: "Thread Leaks in CompletableFuture",
+        title: "Combining Futures",
         points: [
-            "Using `supplyAsync()` on a custom executor requires you to shut it down!",
+            "`thenCombine()` → combine two independent futures",
             "```java",
-            "ExecutorService pool = Executors.newFixedThreadPool(5);",
-            "CompletableFuture.runAsync(task, pool);",
-            "pool.shutdown(); // ← don't forget",
+            "CompletableFuture<String> name = getNameAsync();",
+            "CompletableFuture<Integer> age = getAgeAsync();",
+            "",
+            "CompletableFuture<String> result = name.thenCombine(age,",
+            "    (n, a) -> n + \" is \" + a + \" years old\");",
             "```",
-            "🔥 Tip: Forgetting shutdown leads to memory leaks in long-running apps"
+            "✔️ Both futures run in parallel"
+        ]
+    },
+    {
+        title: "Chaining Dependent Calls",
+        points: [
+            "`thenCompose()` → chain dependent async operations",
+            "```java",
+            "CompletableFuture<Order> orderFuture = getUserId()",
+            "    .thenCompose(id -> getUser(id))",
+            "    .thenCompose(user -> getOrder(user.getId()));",
+            "```",
+            "🔥 Avoids nested Future<Future<T>> problem"
+        ]
+    },
+    {
+        title: "Error Handling",
+        points: [
+            "`exceptionally()` → handle exceptions",
+            "`handle()` → handle both success and failure",
+            "```java",
+            "CompletableFuture<String> future = CompletableFuture",
+            "    .supplyAsync(() -> riskyOperation())",
+            "    .exceptionally(ex -> \"Default value\")",
+            "    .handle((result, ex) -> {",
+            "        return ex != null ? \"Error\" : result;",
+            "    });",
+            "```"
+        ]
+    },
+    {
+        title: "Waiting for Multiple Futures",
+        points: [
+            "`allOf()` → wait for all to complete",
+            "`anyOf()` → wait for first to complete",
+            "```java",
+            "CompletableFuture<Void> all = CompletableFuture.allOf(",
+            "    future1, future2, future3",
+            ");",
+            "",
+            "CompletableFuture<Object> first = CompletableFuture.anyOf(",
+            "    future1, future2, future3",
+            ");",
+            "```"
+        ]
+    },
+    {
+        title: "Custom Thread Pools",
+        points: [
+            "Default: uses `ForkJoinPool.commonPool()`",
+            "Custom executor for better control:",
+            "```java",
+            "ExecutorService executor = Executors.newFixedThreadPool(4);",
+            "",
+            "CompletableFuture<String> future = CompletableFuture",
+            "    .supplyAsync(() -> doWork(), executor);",
+            "",
+            "executor.shutdown(); // Don't forget!",
+            "```",
+            "🔥 Always shutdown custom executors"
+        ]
+    },
+    {
+        title: "Best Practices",
+        points: [
+            "✅ Use for I/O-bound operations (DB, API calls)",
+            "✅ Chain operations instead of blocking with get()",
+            "✅ Handle exceptions with exceptionally()",
+            "❌ Don't use for CPU-intensive tasks",
+            "❌ Don't forget to shutdown custom executors",
+            "❌ Avoid get() in production code"
         ],
-        note: "Mention the incident in our booking microservice where thread leak caused OOM after a week"
+        note: "🧠 Interview tip: CompletableFuture enables reactive, non-blocking programming"
     }
 ];

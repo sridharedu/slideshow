@@ -78,15 +78,17 @@ export const webClientSlides = [
   {
     title: "WebClient vs RestTemplate",
     points: [
-      "| Feature       | RestTemplate | WebClient      |",
-      "|---------------|--------------|----------------|",
-      "| Blocking      | ✅ Yes       | ❌ No          |",
-      "| Async support | ❌ No        | ✅ Yes (Mono)  |",
-      "| Deprecated    | ✅ Soon      | ❌ No          |",
-      "| Use case      | Simple apps  | Reactive/microservices",
-      "Use `WebClient` in modern microservices for async HTTP calls.",
-      "`RestTemplate` is deprecated as of Spring 6."
+      "```table",
+      "Feature        | RestTemplate      | WebClient",
+      "Blocking       | ✅ Yes            | ❌ No",
+      "Async support  | ❌ No             | ✅ Yes (Mono)",
+      "Deprecated     | ✅ Soon           | ❌ No",
+      "Use case       | Simple apps       | Reactive/microservices",
+      "```",
+      "👉 Use `WebClient` for async microservice calls.",
+      "`RestTemplate` is deprecated from Spring 6."
     ]
+
   },
   {
     title: "Real Project Use Case",
