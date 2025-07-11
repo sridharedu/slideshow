@@ -68,5 +68,25 @@ export const slideDecks = {
         title: 'Spring Security with LDAP',
         description: 'Enterprise authentication using LDAP',
         dataFile: 'ldapSecuritySlides'
+    },
+    jpaSlides: {
+        title: 'Java Persistence API (JPA)',
+        description: 'Object-Relational Mapping with JPA',
+        dataFile: 'jpaSlides'
+    },
+    entityRelationshipsSlides: {
+        title: 'JPA Entity Relationships',
+        description: 'Mapping database relationships in JPA',
+        dataFile: 'entityRelationshipsSlides'
+    },
+    entityManagerSlides: {
+        title: 'JPA EntityManager',
+        description: 'Core JPA interface for database operations',
+        dataFile: 'entityManagerSlides'
+    },
+    springDataJpaSlides: {
+        title: 'Spring Data JPA',
+        description: 'High-level data access with Spring Data',
+        dataFile: 'springDataJpaSlides'
     }
 };
