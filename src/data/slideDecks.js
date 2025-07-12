@@ -88,5 +88,15 @@ export const slideDecks = {
         title: 'Spring Data JPA',
         description: 'High-level data access with Spring Data',
         dataFile: 'springDataJpaSlides'
+    },
+    pomFileSlides: {
+        title: 'Maven POM File',
+        description: 'Project Object Model configuration and dependencies',
+        dataFile: 'pomFileSlides'
+    },
+    zipkinSlides: {
+        title: 'Zipkin Distributed Tracing',
+        description: 'Microservice request tracing and debugging',
+        dataFile: 'zipkinSlides'
     }
 };

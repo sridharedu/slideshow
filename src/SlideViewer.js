@@ -20,6 +20,50 @@ const SlideViewer = ({ slides }) => {
 
     const isCode = (line) => line.trim().startsWith("```");
     const isTable = (line) => line.trim().startsWith("```table");
+    
+    const parseTextFormatting = (text) => {
+        if (text.trim().startsWith('#')) {
+            return (
+                <span style={{ color: '#9ca3af', opacity: 0.7 }}>
+                    {text}
+                </span>
+            );
+        }
+        
+        let result = [];
+        let remaining = text;
+        let key = 0;
+        
+        while (remaining) {
+            const boldMatch = remaining.match(/^(.*?)\*\*(.*?)\*\*/);
+            const codeMatch = remaining.match(/^(.*?)`([^`]+)`/);
+            
+            if (boldMatch && (!codeMatch || boldMatch.index <= codeMatch.index)) {
+                if (boldMatch[1]) result.push(boldMatch[1]);
+                result.push(<strong key={key++}>{boldMatch[2]}</strong>);
+                remaining = remaining.slice(boldMatch[0].length);
+            } else if (codeMatch) {
+                if (codeMatch[1]) result.push(codeMatch[1]);
+                result.push(
+                    <code key={key++} style={{
+                        background: '#f3f4f6',
+                        padding: '0.125rem 0.25rem',
+                        borderRadius: '0.25rem',
+                        fontSize: '0.875em',
+                        fontFamily: 'Fira Code, monospace'
+                    }}>
+                        {codeMatch[2]}
+                    </code>
+                );
+                remaining = remaining.slice(codeMatch[0].length);
+            } else {
+                result.push(remaining);
+                break;
+            }
+        }
+        
+        return result;
+    };
 
     const renderSlideContent = (points) => {
         let output = [];
@@ -98,7 +142,15 @@ const SlideViewer = ({ slides }) => {
                                 marginBottom: "1.25rem"
                             }}
                         >
-                            <code>{buffer.join("\n")}</code>
+                            <code>
+                                {buffer.map((line, idx) => (
+                                    <div key={idx} style={{
+                                        color: line.trim().startsWith('#') ? '#6b7280' : 'inherit'
+                                    }}>
+                                        {line}
+                                    </div>
+                                ))}
+                            </code>
                         </pre>
                     );
                     inCode = false;
@@ -114,7 +166,7 @@ const SlideViewer = ({ slides }) => {
                         color: "#374151",
                         paddingLeft: "1.25rem"
                     }}>
-                        • {line}
+                        • {parseTextFormatting(line)}
                     </div>
                 );
             }
