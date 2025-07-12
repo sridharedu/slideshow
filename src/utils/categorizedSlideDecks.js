@@ -34,16 +34,6 @@ export const categorizedSlideDecks = {
         description: 'Enterprise Java platform and technologies'
       },
       {
-        key: 'javaComponentsSlides',
-        title: 'Java Components',
-        description: 'JavaBeans, POJOs, and Spring Beans'
-      },
-      {
-        key: 'jvmAndJreSlides',
-        title: 'JVM, JRE, and JDK',
-        description: 'Understanding Java Virtual Machine, Runtime Environment, and Development Kit'
-      },
-      {
         key: 'j2eeVsSpringSlides',
         title: 'J2EE vs Spring Framework',
         description: 'Comparison of enterprise Java approaches'
@@ -95,13 +85,7 @@ export const categorizedSlideDecks = {
   "Messaging & Event-Driven Architecture": {
     icon: "📨",
     description: "Kafka, RabbitMQ, ActiveMQ, Debezium, Vert.x",
-    slides: [
-      {
-        key: 'kafkaSlides',
-        title: 'Apache Kafka',
-        description: 'Distributed streaming platform for real-time data feeds'
-      }
-    ]
+    slides: []
   },
   "Databases & Query Optimization": {
     icon: "🗄️",
@@ -169,6 +153,11 @@ export const categorizedSlideDecks = {
         key: 'zipkinSlides',
         title: 'Zipkin Distributed Tracing',
         description: 'Microservice request tracing and debugging'
+      },
+      {
+        key: 'prometheusSlides',
+        title: 'Prometheus Monitoring',
+        description: 'Time-series monitoring and alerting toolkit'
       }
     ]
   },

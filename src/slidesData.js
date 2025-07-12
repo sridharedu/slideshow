@@ -1,7 +1,7 @@
 
 
 export const loadSlideDecks = async () => {
-    const module = await import('./data/slideDecks.js');
+    const module = await import('./utils/slideDecks.js');
     return module.slideDecks;
 };
 

@@ -118,5 +118,10 @@ export const slideDecks = {
         title: 'Git Version Control',
         description: 'Distributed version control system and commands',
         dataFile: 'gitSlides'
+    },
+    prometheusSlides: {
+        title: 'Prometheus Monitoring',
+        description: 'Time-series monitoring and alerting toolkit',
+        dataFile: 'prometheusSlides'
     }
 };

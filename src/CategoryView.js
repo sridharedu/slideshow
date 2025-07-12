@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { categorizedSlideDecks } from './data/categorizedSlideDecks';
-import { slideDecks } from './data/slideDecks';
+import { categorizedSlideDecks } from './utils/categorizedSlideDecks';
 
 const CategoryView = ({ onSelectSlide }) => {
   const [selectedCategory, setSelectedCategory] = useState(null);
