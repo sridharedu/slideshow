@@ -12,6 +12,11 @@ const SlideViewer = ({ slides }) => {
             } else if (["ArrowLeft", "a"].includes(e.key)) {
                 e.preventDefault();
                 setCurrent((c) => Math.max(c - 1, 0));
+            } else if (e.key >= '1' && e.key <= '9') {
+                const slideNum = parseInt(e.key) - 1;
+                if (slideNum < slides.length) {
+                    setCurrent(slideNum);
+                }
             }
         };
         window.addEventListener("keydown", handleKey);
@@ -266,9 +271,23 @@ const SlideViewer = ({ slides }) => {
                     background: "#fff",
                     borderRadius: "16px",
                     boxShadow: "0 10px 30px rgba(0,0,0,0.1)",
-                    padding: "2.5rem 3rem"
+                    padding: "2.5rem 3rem",
+                    position: "relative"
                 }}
             >
+                <div style={{
+                    position: "absolute",
+                    top: "1rem",
+                    right: "1.5rem",
+                    fontSize: "0.875rem",
+                    color: "#6b7280",
+                    background: "#f9fafb",
+                    padding: "0.25rem 0.75rem",
+                    borderRadius: "12px",
+                    border: "1px solid #e5e7eb"
+                }}>
+                    {current + 1} / {slides.length}
+                </div>
                 <h2
                     style={{
                         fontSize: "1.75rem",
@@ -321,9 +340,29 @@ const SlideViewer = ({ slides }) => {
                         ← Prev
                     </button>
 
-                    <span style={{ fontSize: "0.875rem", color: "#6b7280" }}>
-                        {current + 1} / {slides.length}
-                    </span>
+                    <div style={{ display: "flex", gap: "0.25rem" }}>
+                        {slides.map((_, index) => (
+                            <button
+                                key={index}
+                                onClick={() => setCurrent(index)}
+                                style={{
+                                    width: "2rem",
+                                    height: "2rem",
+                                    borderRadius: "50%",
+                                    border: "1px solid #d1d5db",
+                                    background: current === index ? "#667eea" : "#fff",
+                                    color: current === index ? "#fff" : "#6b7280",
+                                    fontSize: "0.75rem",
+                                    cursor: "pointer",
+                                    display: index < 9 ? "flex" : "none",
+                                    alignItems: "center",
+                                    justifyContent: "center"
+                                }}
+                            >
+                                {index + 1}
+                            </button>
+                        ))}
+                    </div>
 
                     <button
                         onClick={() => setCurrent((c) => Math.min(c + 1, slides.length - 1))}

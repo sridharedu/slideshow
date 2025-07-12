@@ -109,7 +109,7 @@ export const pomFileSlides = [
       "  <spring.version>6.1.0</spring.version>",
       "</properties>",
       "```",
-      "Use properties with ${property.name} syntax"
+      "🔥 Use properties with property.name syntax"
     ]
   },
   {
