@@ -169,6 +169,17 @@ export const javaJ2EESlides = [
     keepInMind: "JMS is a powerful tool for building decoupled, asynchronous systems."
   },
   {
+    title: "J2EE Deployment",
+    points: [
+      "**WAR (Web Application Archive)**: For web modules (Servlets, JSPs, JSF).",
+      "**EJB-JAR (Enterprise JavaBean Archive)**: For EJB modules.",
+      "**EAR (Enterprise Archive)**: Combines WARs, EJB-JARs, and other modules into a single deployable unit.",
+      "Deployed to a J2EE Application Server (e.g., WildFly, GlassFish, WebLogic, WebSphere).",
+      "🔥 Application servers provide the runtime environment and services for J2EE components."
+    ],
+    keepInMind: "EAR files are used for complex, multi-module enterprise applications."
+  },
+  {
     title: "Best Practices",
     points: [
       "✅ Use stateless session beans for scalability",
@@ -193,6 +204,7 @@ export const javaJ2EESlides = [
       "**JPA Entity Mapping** - Object-relational mapping for data persistence",
       "**CDI** - Dependency injection for enterprise components",
       "**JMS** - Asynchronous messaging for distributed systems",
+      "**Deployment** - WAR, EJB-JAR, and EAR files deployed to application servers.",
       "🔥 Foundation for enterprise Java development with comprehensive APIs"
     ],
     note: "🧠 J2EE provides enterprise-grade solutions for complex distributed applications",

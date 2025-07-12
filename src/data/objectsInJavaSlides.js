@@ -88,6 +88,28 @@ export const objectsInJavaSlides = [
         keepInMind: "Every class in Java is a descendant of `java.lang.Object`, making it the root of the class hierarchy."
     },
     {
+        title: "Immutability",
+        points: [
+            "✔️ Object's state cannot be modified after creation",
+            "All fields are `final` and private",
+            "No setter methods",
+            "Returns new object for any modification",
+            "🔥 Enhances thread safety and simplifies reasoning about state"
+        ],
+        keepInMind: "Immutability is a powerful concept for building robust and concurrent applications."
+    },
+    {
+        title: "Serialization",
+        points: [
+            "✔️ Process of converting an object into a byte stream",
+            "Allows objects to be stored or transmitted across a network",
+            "`Serializable` interface (marker interface)",
+            "`ObjectOutputStream` for writing, `ObjectInputStream` for reading",
+            "🔥 Crucial for persistence and inter-process communication"
+        ],
+        keepInMind: "Serialization is a fundamental mechanism for persisting and transferring Java objects."
+    },
+    {
         title: "Best Practices",
         points: [
             "Always override `toString()` for logging",

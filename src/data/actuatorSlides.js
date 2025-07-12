@@ -131,6 +131,32 @@ export const actuatorSlides = [
     keepInMind: "Actuator provides the raw data; for visualization and alerting, you'll need to integrate with tools like Prometheus and Grafana."
   },
   {
+    title: "Custom Endpoints",
+    points: [
+      "✔️ Create your own Actuator endpoints for custom monitoring or management.",
+      "Implement a class with `@Endpoint` annotation.",
+      "Use `@ReadOperation`, `@WriteOperation`, `@DeleteOperation` for methods.",
+      "```java",
+      "@Component",
+      "@Endpoint(id = \"myCustomEndpoint\")",
+      "public class MyCustomEndpoint {\n    @ReadOperation\n    public String customData() {\n        return \"Hello from custom endpoint!\";\n    }\n}",
+      "```",
+      "🔥 Extend Actuator's capabilities to expose application-specific data."
+    ],
+    keepInMind: "Custom endpoints are powerful for exposing internal application state or operations securely."
+  },
+  {
+    title: "Tracing with Actuator (Sleuth Integration)",
+    points: [
+      "✔️ Spring Cloud Sleuth integrates with Actuator to provide tracing information.",
+      "Adds `traceId` and `spanId` to logs and HTTP headers.",
+      "View trace details via `/actuator/httptrace` or `/actuator/trace` (deprecated in newer versions).",
+      "Integrates with distributed tracing systems like Zipkin.",
+      "🔥 Essential for debugging microservices and understanding request flow."
+    ],
+    keepInMind: "Distributed tracing is critical for understanding the performance and behavior of microservice architectures."
+  },
+  {
     title: "Security Configuration",
     points: [
       "Secure actuator endpoints:",

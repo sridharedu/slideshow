@@ -35,6 +35,17 @@ export const spyBeansSlides = [
     keepInMind: "`@SpyBean` is a powerful tool, but it's often a sign that your test has a large scope."
   },
   {
+    title: "How @SpyBean Works",
+    points: [
+      "✔️ Spring creates the actual bean instance.",
+      "Mockito then wraps this real instance with a spy.",
+      "When a method is called on the spy, it defaults to calling the real method.",
+      "Stubbing a method on the spy overrides this default behavior.",
+      "🔥 It's a proxy around the real object, allowing interception."
+    ],
+    keepInMind: "The spy maintains a reference to the real object, forwarding calls unless explicitly stubbed."
+  },
+  {
     title: "Basic @SpyBean Example",
     points: [
       "```java",
@@ -143,6 +154,16 @@ export const spyBeansSlides = [
       "```"
     ],
     keepInMind: "This is a classic use case for `@SpyBean`: testing a complex workflow while mocking out a single external dependency."
+  },
+  {
+    title: "Performance Considerations",
+    points: [
+      "✔️ Spies are generally slower than mocks because they involve calling real methods.",
+      "Spring context loading can add overhead to tests using `@SpyBean`.",
+      "Use `@DataJpaTest`, `@WebMvcTest`, etc., for more focused context loading.",
+      "🔥 Balance between test realism and execution speed."
+    ],
+    keepInMind: "For true unit tests, prefer plain Mockito mocks; `@SpyBean` is better suited for integration tests."
   },
   {
     title: "Best Practices",

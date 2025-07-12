@@ -63,6 +63,18 @@ export const jwtSlides = [
     keepInMind: "The payload is readable by anyone, so never store sensitive information in it."
   },
   {
+    title: "JWT Signature",
+    points: [
+      "✔️ Created by encoding the header and payload, then signing with a secret/private key.",
+      "`HMACSHA256(base64UrlEncode(header) + \".\" + base64UrlEncode(payload), secret)`",
+      "Ensures the token's integrity and authenticity.",
+      "**Symmetric (HS256)**: Same secret key for signing and verification.",
+      "**Asymmetric (RS256)**: Private key for signing, public key for verification.",
+      "🔥 Any alteration to header or payload invalidates the signature."
+    ],
+    keepInMind: "The signature prevents tampering and verifies the sender's identity."
+  },
+  {
     title: "JWT in Spring Boot",
     points: [
       "Add dependency:",
@@ -158,6 +170,44 @@ export const jwtSlides = [
       "```"
     ],
     keepInMind: "This filter intercepts every request to validate the JWT and set up the Spring Security context."
+  },
+  {
+    title: "Refresh Tokens",
+    points: [
+      "✔️ Used to obtain new access tokens without re-authenticating the user.",
+      "Long-lived, stored securely (e.g., HTTP-only cookie).",
+      "Access tokens are short-lived (minutes to hours).",
+      "**Flow**: Client sends refresh token to `/refresh` endpoint, server issues new access token.",
+      "🔥 Improves security by limiting access token exposure and enabling revocation."
+    ],
+    keepInMind: "Refresh tokens are a critical component for managing long-lived user sessions securely with JWTs."
+  },
+  {
+    title: "JWT Revocation Strategies",
+    points: [
+      "✔️ JWTs are stateless, so direct revocation is challenging.",
+      "**Blacklisting**: Store revoked tokens in a database (e.g., Redis) and check on each request.",
+      "**Short Expiration + Refresh Tokens**: Rely on short access token expiry.",
+      "**Change Secret Key**: Invalidates all tokens signed with the old key (disruptive).",
+      "**Session Management**: Maintain server-side sessions for critical actions.",
+      "🔥 Choose a strategy based on security requirements and performance impact."
+    ],
+    keepInMind: "The stateless nature of JWTs means you need to implement additional mechanisms for immediate revocation."
+  },
+  {
+    title: "Common JWT Attacks & Mitigations",
+    points: [
+      "**None Algorithm Attack**: Server accepts tokens signed with 'none' algorithm.",
+      "→ **Mitigation**: Always verify the algorithm in the header.",
+      "**Brute-Force Attack**: Guessing weak secret keys.",
+      "→ **Mitigation**: Use strong, long, random secret keys.",
+      "**XSS/CSRF**: Stealing tokens from client-side storage.",
+      "→ **Mitigation**: Store tokens in HTTP-only cookies, use CSRF tokens.",
+      "**Expired Token Reuse**: Using expired tokens.",
+      "→ **Mitigation**: Always validate `exp` claim.",
+      "🔥 Security is a continuous process; stay updated on best practices."
+    ],
+    keepInMind: "Never trust the client; always validate JWTs on the server-side."
   },
   {
     title: "JWT Best Practices",

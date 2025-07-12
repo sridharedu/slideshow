@@ -102,6 +102,30 @@ export const aggregationCompositionSlides = [
     keepInMind: "UML provides a standardized visual language to communicate these design choices clearly."
   },
   {
+    title: "Implementation Details",
+    points: [
+      "**Aggregation**: Often implemented with constructor injection or setter injection, where the 'part' object is passed in.",
+      "```java\n    public class Department {\n    private List<Employee> employees;\n    public Department(List<Employee> employees) { this.employees = employees; }\n}",
+      "```",
+      "**Composition**: Typically implemented by creating the 'part' object within the 'whole' object's constructor or method.",
+      "```java\n    public class House {\n    private Room kitchen;\n    public House() { this.kitchen = new Room(\"Kitchen\"); }\n}",
+      "```",
+      "🔥 The way objects are instantiated and managed reveals the relationship type."
+    ],
+    keepInMind: "The key difference in implementation lies in who is responsible for the creation and lifecycle of the 'part' object."
+  },
+  {
+    title: "Benefits and Drawbacks",
+    points: [
+      "**Aggregation Benefits**: Increased flexibility, reusability of parts, reduced coupling.",
+      "**Aggregation Drawbacks**: Requires careful management of shared objects, potential for null references.",
+      "**Composition Benefits**: Strong encapsulation, simpler lifecycle management, stronger integrity.",
+      "**Composition Drawbacks**: Reduced flexibility, parts are not easily reusable outside the 'whole'.",
+      "🔥 Choose based on the specific needs for coupling, reusability, and lifecycle management."
+    ],
+    keepInMind: "Aggregation promotes loose coupling, while composition enforces strong coupling and ownership."
+  },
+  {
     title: "When to Use Which?",
     points: [
       "**Use Aggregation when:**",

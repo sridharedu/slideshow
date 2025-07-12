@@ -7,8 +7,6 @@ export const hashCodeSlides = [
       "Used in hash-based collections: HashMap, HashSet",
       "🔥 It's NOT a memory address!"
     ],
-
-
     note: "🧠 hashCode helps locate bucket in hashmap → fast access",
     keepInMind: "hashCode() is the foundation of hash-based collections in Java, enabling O(1) average time complexity for lookups."
   },
@@ -61,13 +59,15 @@ export const hashCodeSlides = [
     keepInMind: "Collisions are inevitable, but a good hashCode implementation distributes keys evenly, minimizing them."
   },
   {
-    title: "Common mistakes",
+    title: "Impact on HashMap Performance",
     points: [
-      "❌ Only override equals(), not hashCode",
-      "❌ Use random values in hashCode()",
-      "❌ Mutable fields in hashCode logic → breaks Map/Set"
+      "**Good hashCode**: Objects distributed evenly across buckets.",
+      "→ Fast `O(1)` average time for `put`, `get`, `remove`.",
+      "**Bad hashCode**: Many objects in few buckets (high collision rate).",
+      "→ Degrades to `O(n)` in worst case (like a linked list).",
+      "🔥 Performance of hash-based collections heavily relies on `hashCode`."
     ],
-    keepInMind: "Using mutable fields in hashCode is a classic bug that can cause objects to get 'lost' in collections."
+    keepInMind: "A poorly implemented `hashCode` can turn your `HashMap` into a `LinkedList` in terms of performance."
   },
   {
     title: "In practice: HashMap lookup",
@@ -95,5 +95,32 @@ export const hashCodeSlides = [
       "🔥 Reduces boilerplate and bugs"
     ],
     keepInMind: "Let tools handle the boilerplate; it's less error-prone and more maintainable."
+  },
+  {
+    title: "Best Practices for equals() and hashCode()",
+    points: [
+      "✅ Always override both or neither.",
+      "✅ Use the same fields for both methods.",
+      "✅ Make `equals()` consistent (if a.equals(b), then b.equals(a)).",
+      "✅ Make `equals()` reflexive (a.equals(a) is true).",
+      "✅ Make `equals()` transitive (if a.equals(b) and b.equals(c), then a.equals(c)).",
+      "✅ Make `equals()` symmetric (if a.equals(b), then b.equals(a)).",
+      "✅ Make `equals()` null-safe (a.equals(null) is false).",
+      "✅ Ensure `hashCode()` is consistent (multiple calls return same value).",
+      "❌ Don't use mutable fields in `hashCode()` if they change after object insertion into a hash collection."
+    ],
+    keepInMind: "Adhering to the `equals` and `hashCode` contract is paramount for correct behavior of collections."
+  },
+  {
+    title: "Summary of hashCode()",
+    points: [
+      "**Purpose**: Efficiently store and retrieve objects in hash-based collections.",
+      "**Contract**: Must be consistent with `equals()`.",
+      "**Implementation**: Use `Objects.hash()` or IDE-generated code.",
+      "**Performance**: A good `hashCode()` minimizes collisions and maintains `O(1)` performance.",
+      "**Common Pitfalls**: Forgetting to override both, using mutable fields.",
+      "🔥 `hashCode()` is a small method with a big impact on Java application performance and correctness."
+    ],
+    keepInMind: "Think of `hashCode()` as a first-pass filter for `equals()`: if hashes don't match, objects can't be equal."
   }
 ];

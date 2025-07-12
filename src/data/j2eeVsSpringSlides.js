@@ -160,6 +160,17 @@ export const j2eeVsSpringSlides = [
     keepInMind: "While both can be highly performant, Spring's architecture is generally better suited for modern, cloud-native deployments."
   },
   {
+    title: "Community and Ecosystem",
+    points: [
+      "**J2EE/Jakarta EE**: Driven by a specification process, multiple vendor implementations.",
+      "→ Strong for standardization and vendor neutrality.",
+      "**Spring Framework**: Driven by Pivotal (now VMware Tanzu), large and active open-source community.",
+      "→ Rich ecosystem of projects (Spring Boot, Cloud, Data, Security, etc.).",
+      "🔥 Spring's vibrant community and extensive ecosystem are major advantages."
+    ],
+    keepInMind: "Spring's rapid innovation and broad ecosystem often lead to faster adoption of new technologies."
+  },
+  {
     title: "When to Choose Which?",
     points: [
       "**Choose J2EE when**:",
@@ -187,6 +198,7 @@ export const j2eeVsSpringSlides = [
       "**Testing** - Arquillian complexity vs Spring Boot simplicity",
       "**Development Experience** - Steep learning vs moderate complexity",
       "**Decision Factors** - Enterprise compliance vs rapid development",
+      "**Community** - Specification-driven vs Open-source ecosystem",
       "🔥 Both approaches solve enterprise challenges with different philosophies"
     ],
     note: "🧠 Choose based on project requirements, team expertise, and infrastructure",

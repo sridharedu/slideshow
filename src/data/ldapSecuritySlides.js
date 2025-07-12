@@ -11,6 +11,30 @@ export const ldapSecuritySlides = [
     keepInMind: "LDAP is like a phonebook for your organization, but for users, computers, and other resources."
   },
   {
+    title: "LDAP Data Model",
+    points: [
+      "**Entry**: A collection of attributes with a unique Distinguished Name (DN).",
+      "**Distinguished Name (DN)**: Uniquely identifies an entry in the directory (e.g., `cn=John Doe,ou=people,dc=example,dc=com`).",
+      "**Relative Distinguished Name (RDN)**: The most significant part of the DN (e.g., `cn=John Doe`).",
+      "**Attributes**: Key-value pairs describing an entry (e.g., `uid`, `mail`, `sn`, `cn`).",
+      "**ObjectClass**: Defines the types of attributes an entry can have (e.g., `person`, `organizationalPerson`).",
+      "🔥 Hierarchical structure, similar to a file system."
+    ],
+    keepInMind: "The DN is crucial for uniquely identifying and locating entries within the LDAP directory."
+  },
+  {
+    title: "LDAP Operations",
+    points: [
+      "**Bind**: Authenticates a client to the LDAP server.",
+      "**Search**: Retrieves information from the directory based on criteria.",
+      "**Add**: Creates new entries in the directory.",
+      "**Modify**: Changes existing entries.",
+      "**Delete**: Removes entries from the directory.",
+      "🔥 These are the fundamental interactions with an LDAP server."
+    ],
+    keepInMind: "Most applications primarily use Bind and Search operations for authentication and authorization."
+  },
+  {
     title: "LDAP vs Database Auth",
     points: [
       "```table",
@@ -166,7 +190,7 @@ export const ldapSecuritySlides = [
     keepInMind: "This is how you translate your organization's group structure into application-level roles."
   },
   {
-    title: "Best Practices",
+    title: "LDAP Best Practices",
     points: [
       "✅ Use connection pooling for performance",
       "✅ Implement proper error handling",

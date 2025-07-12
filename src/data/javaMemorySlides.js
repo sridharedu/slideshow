@@ -111,6 +111,28 @@ export const javaMemorySlides = [
     keepInMind: "The goal of GC is to reclaim memory, but it comes at the cost of application pauses."
   },
   {
+    title: "Garbage Collection Algorithms",
+    points: [
+      "**Serial GC**: Single-threaded, stop-the-world. Best for small applications.",
+      "**Parallel GC**: Multi-threaded young generation GC. Good for throughput.",
+      "**CMS (Concurrent Mark-Sweep) GC**: Reduces pause times by doing most work concurrently. Deprecated.",
+      "**G1 (Garbage-First) GC**: Region-based, aims for predictable pause times. Default in modern JDKs.",
+      "**ZGC / Shenandoah GC**: Low-latency, highly concurrent GCs for very large heaps.",
+      "🔥 Choosing the right GC depends on application requirements (throughput vs. latency)."
+    ],
+    keepInMind: "Modern GCs like G1, ZGC, and Shenandoah are designed to minimize stop-the-world pauses."
+  },
+  {
+    title: "Memory Leaks in Java",
+    points: [
+      "✔️ Objects are no longer needed but are still referenced, preventing GC.",
+      "**Common causes**: Static collections, unclosed resources (streams, connections), event listeners, inner classes.",
+      "**Symptoms**: Gradual increase in memory usage, `OutOfMemoryError` over time, slow performance.",
+      "🔥 Not a memory leak in the C/C++ sense, but still a critical issue."
+    ],
+    keepInMind: "A memory leak in Java is typically a 'logical' leak, where reachable objects are unintentionally retained."
+  },
+  {
     title: "Memory Tuning Parameters",
     points: [
       "```bash",
@@ -130,6 +152,17 @@ export const javaMemorySlides = [
     keepInMind: "JVM tuning is a complex but essential skill for high-performance applications."
   },
   {
+    title: "Profiling Tools",
+    points: [
+      "**JVisualVM**: Built-in JDK tool for monitoring, profiling, and analyzing heap dumps.",
+      "**JProfiler / YourKit**: Commercial, powerful profilers with advanced features.",
+      "**Eclipse Memory Analyzer (MAT)**: Analyzes heap dumps to find memory leaks.",
+      "**Flight Recorder (JFR) & Mission Control (JMC)**: Low-overhead profiling and monitoring (JDK 11+).",
+      "🔥 Essential for diagnosing memory issues and performance bottlenecks."
+    ],
+    keepInMind: "Profiling tools are your best friends when hunting down memory leaks or performance regressions."
+  },
+  {
     title: "Memory Issues & Solutions",
     points: [
       "**OutOfMemoryError: Java heap space**",
@@ -146,4 +179,4 @@ export const javaMemorySlides = [
     note: "🧠 Interview tip: Explain heap vs stack, GC types, and common memory issues",
     keepInMind: "Memory leaks are a common problem in Java, often caused by long-lived objects holding references to short-lived ones."
   }
-]
+];

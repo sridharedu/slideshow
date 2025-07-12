@@ -126,6 +126,19 @@ export const swaggerSlides = [
     keepInMind: "You can customize the look and feel of the Swagger UI to match your project's branding."
   },
   {
+    title: "Code Generation from OpenAPI",
+    points: [
+      "✔️ Generate client SDKs, server stubs, and documentation from your OpenAPI spec.",
+      "Tools like `OpenAPI Generator` can automate this process.",
+      "**Benefits**: Ensures consistency between API and client/server code, speeds up development.",
+      "```bash",
+      "# Example: Generate Java client from OpenAPI spec\nopenapi-generator generate -i openapi.yaml -g java -o my-java-client",
+      "```",
+      "🔥 Automates boilerplate code, reducing manual errors."
+    ],
+    keepInMind: "Code generation is a powerful feature that leverages your OpenAPI specification to accelerate development."
+  },
+  {
     title: "Security Documentation",
     points: [
       "Document JWT authentication:",
@@ -146,6 +159,17 @@ export const swaggerSlides = [
       "```"
     ],
     keepInMind: "Properly documenting your security scheme is essential for making your API usable by others."
+  },
+  {
+    title: "Integration with CI/CD",
+    points: [
+      "✔️ Automate OpenAPI specification generation and validation in your CI/CD pipeline.",
+      "Ensure API documentation is always up-to-date with the latest code changes.",
+      "Use tools to lint and validate your OpenAPI spec for correctness.",
+      "**Benefits**: Prevents outdated documentation, improves developer experience, enables API-first development.",
+      "🔥 Treat your OpenAPI spec as a single source of truth for your API."
+    ],
+    keepInMind: "Automating documentation generation ensures that your API docs are always accurate and reflect the current state of your API."
   },
   {
     title: "Best Practices",

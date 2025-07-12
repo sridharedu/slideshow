@@ -34,6 +34,16 @@ export const categorizedSlideDecks = {
         description: 'Enterprise Java platform and technologies'
       },
       {
+        key: 'javaComponentsSlides',
+        title: 'Java Components',
+        description: 'JavaBeans, POJOs, and Spring Beans'
+      },
+      {
+        key: 'jvmAndJreSlides',
+        title: 'JVM, JRE, and JDK',
+        description: 'Understanding Java Virtual Machine, Runtime Environment, and Development Kit'
+      },
+      {
         key: 'j2eeVsSpringSlides',
         title: 'J2EE vs Spring Framework',
         description: 'Comparison of enterprise Java approaches'
@@ -85,7 +95,13 @@ export const categorizedSlideDecks = {
   "Messaging & Event-Driven Architecture": {
     icon: "📨",
     description: "Kafka, RabbitMQ, ActiveMQ, Debezium, Vert.x",
-    slides: []
+    slides: [
+      {
+        key: 'kafkaSlides',
+        title: 'Apache Kafka',
+        description: 'Distributed streaming platform for real-time data feeds'
+      }
+    ]
   },
   "Databases & Query Optimization": {
     icon: "🗄️",
