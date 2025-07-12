@@ -113,5 +113,10 @@ export const slideDecks = {
         title: 'Java Evolution Timeline',
         description: 'Java versions from 1.0 to 21 with key features',
         dataFile: 'javaTimelineSlides'
+    },
+    gitSlides: {
+        title: 'Git Version Control',
+        description: 'Distributed version control system and commands',
+        dataFile: 'gitSlides'
     }
 };
