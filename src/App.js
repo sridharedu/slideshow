@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import LandingPage from './LandingPage';
+import CategoryView from './CategoryView';
 import SlidePresentation from './SlidePresentation';
 
 function App() {
@@ -30,7 +30,7 @@ function App() {
     );
   }
   
-  return <LandingPage onSelectDeck={setSelectedDeck} />;
+  return <CategoryView onSelectSlide={setSelectedDeck} />;
 }
 
 export default App;

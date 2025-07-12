@@ -266,7 +266,7 @@ const SlideViewer = ({ slides }) => {
         >
             <div
                 style={{
-                    maxWidth: "960px",
+                    maxWidth: "1200px",
                     width: "100%",
                     background: "#fff",
                     borderRadius: "16px",
