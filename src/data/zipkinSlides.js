@@ -136,5 +136,19 @@ export const zipkinSlides = [
       "❌ Don't store sensitive data in tags"
     ],
     note: "🧠 Interview tip: Explain how distributed tracing helps with microservice debugging"
+  },
+  {
+    title: "Zipkin Summary",
+    points: [
+      "**What is Zipkin** - Distributed tracing system for microservices",
+      "**Architecture** - Tracer, Collector, Storage, Query Service, Web UI",
+      "**Key Concepts** - Traces, spans, trace IDs for request tracking",
+      "**Spring Integration** - Simple dependency and configuration setup",
+      "**Custom Spans** - Manual instrumentation for detailed tracing",
+      "**Sampling** - Performance optimization through request sampling",
+      "**UI Features** - Visual trace analysis and dependency mapping",
+      "🔥 Essential tool for microservice debugging and performance analysis"
+    ],
+    note: "🧠 Zipkin helps identify bottlenecks and troubleshoot distributed systems effectively"
   }
 ];

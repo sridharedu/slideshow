@@ -142,5 +142,19 @@ export const pomFileSlides = [
       "❌ Don't use SNAPSHOT versions in production"
     ],
     note: "🧠 Interview tip: Explain dependency resolution and transitive dependencies"
+  },
+  {
+    title: "POM File Summary",
+    points: [
+      "**What is POM** - Project Object Model, Maven's core configuration",
+      "**Basic Structure** - groupId, artifactId, version, packaging elements",
+      "**Dependencies** - External libraries with scope management",
+      "**Spring Boot Integration** - Parent POM and starter dependencies",
+      "**Build Configuration** - Plugins for extended Maven capabilities",
+      "**Properties** - Centralized version and configuration management",
+      "**Maven Commands** - clean, compile, test, package, install",
+      "🔥 POM file is the blueprint for Maven project structure and dependencies"
+    ],
+    note: "🧠 Understanding POM structure is essential for Java project management"
   }
 ];

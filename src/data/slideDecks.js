@@ -98,5 +98,20 @@ export const slideDecks = {
         title: 'Zipkin Distributed Tracing',
         description: 'Microservice request tracing and debugging',
         dataFile: 'zipkinSlides'
+    },
+    javaJ2EESlides: {
+        title: 'Java J2EE Enterprise',
+        description: 'Enterprise Java platform and technologies',
+        dataFile: 'javaJ2EESlides'
+    },
+    j2eeVsSpringSlides: {
+        title: 'J2EE vs Spring Framework',
+        description: 'Comparison of enterprise Java approaches',
+        dataFile: 'j2eeVsSpringSlides'
+    },
+    javaTimelineSlides: {
+        title: 'Java Evolution Timeline',
+        description: 'Java versions from 1.0 to 21 with key features',
+        dataFile: 'javaTimelineSlides'
     }
 };

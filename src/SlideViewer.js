@@ -201,7 +201,7 @@ const SlideViewer = ({ slides }) => {
                         <pre
                             key={`code-${i}`}
                             style={{
-                                background: "#f4f4f5",
+                                background: "#fafbfc",
                                 padding: "1.25rem",
                                 borderRadius: "8px",
                                 fontSize: "0.9rem",
