@@ -7,7 +7,8 @@ export const j2eeVsSpringSlides = [
       "Spring: Third-party framework with simpler approach",
       "🔥 Both solve enterprise application challenges differently"
     ],
-    note: "🧠 Understanding both helps choose the right approach for your project"
+    note: "🧠 Understanding both helps choose the right approach for your project",
+    keepInMind: "J2EE (now Jakarta EE) is a set of specifications, while Spring is a comprehensive framework that often implements those specifications."
   },
   {
     title: "Architecture Comparison",
@@ -19,7 +20,8 @@ export const j2eeVsSpringSlides = [
       "Configuration | XML + Annotations | Java Config + Annotations",
       "Complexity | Heavy, complex setup | Lightweight, simple setup",
       "```"
-    ]
+    ],
+    keepInMind: "Spring Boot's embedded server model has largely replaced the need for traditional, heavy application servers."
   },
   {
     title: "Dependency Injection",
@@ -40,7 +42,8 @@ export const j2eeVsSpringSlides = [
       "    private PaymentService paymentService;",
       "}",
       "```"
-    ]
+    ],
+    keepInMind: "While syntactically similar, Spring's dependency injection is generally more powerful and flexible than CDI."
   },
   {
     title: "Data Access Layer",
@@ -64,7 +67,8 @@ export const j2eeVsSpringSlides = [
       "    // Methods auto-generated",
       "}",
       "```"
-    ]
+    ],
+    keepInMind: "Spring Data JPA is a powerful abstraction over standard JPA, significantly reducing boilerplate code."
   },
   {
     title: "Transaction Management",
@@ -83,7 +87,8 @@ export const j2eeVsSpringSlides = [
       "    // Spring-managed transactions",
       "}",
       "```"
-    ]
+    ],
+    keepInMind: "Spring's `@Transactional` annotation is one of its most popular and powerful features."
   },
   {
     title: "Web Layer",
@@ -95,7 +100,8 @@ export const j2eeVsSpringSlides = [
       "View Technology | JSF, JSP | Thymeleaf, JSP, React",
       "Configuration | web.xml | Java Config",
       "```"
-    ]
+    ],
+    keepInMind: "Spring MVC has become the de-facto standard for building web applications and REST APIs in the Java ecosystem."
   },
   {
     title: "Testing Support",
@@ -120,7 +126,8 @@ export const j2eeVsSpringSlides = [
       "    // Simple testing",
       "}",
       "```"
-    ]
+    ],
+    keepInMind: "Spring's testing support is first-class, making it much easier to write and run both unit and integration tests."
   },
   {
     title: "Development Experience",
@@ -133,7 +140,8 @@ export const j2eeVsSpringSlides = [
       "IDE Support | Good | Excellent",
       "Documentation | Specification-based | Comprehensive guides",
       "```"
-    ]
+    ],
+    keepInMind: "Spring Boot provides a superior developer experience, which is a major reason for its popularity."
   },
   {
     title: "Performance & Scalability",
@@ -148,7 +156,8 @@ export const j2eeVsSpringSlides = [
       "• Faster startup times",
       "• Microservices-friendly architecture",
       "• Cloud-native features"
-    ]
+    ],
+    keepInMind: "While both can be highly performant, Spring's architecture is generally better suited for modern, cloud-native deployments."
   },
   {
     title: "When to Choose Which?",
@@ -164,7 +173,8 @@ export const j2eeVsSpringSlides = [
       "✅ Cloud-native applications",
       "✅ Modern development practices preferred"
     ],
-    note: "🧠 Interview tip: Many companies are migrating from J2EE to Spring for agility and cloud readiness"
+    note: "🧠 Interview tip: Many companies are migrating from J2EE to Spring for agility and cloud readiness",
+    keepInMind: "For new projects, Spring is almost always the preferred choice due to its developer-friendliness and modern architecture."
   },
   {
     title: "J2EE vs Spring Summary",
@@ -179,6 +189,7 @@ export const j2eeVsSpringSlides = [
       "**Decision Factors** - Enterprise compliance vs rapid development",
       "🔥 Both approaches solve enterprise challenges with different philosophies"
     ],
-    note: "🧠 Choose based on project requirements, team expertise, and infrastructure"
+    note: "🧠 Choose based on project requirements, team expertise, and infrastructure",
+    keepInMind: "Spring won the framework war because it focused on developer productivity and simplicity."
   }
 ];

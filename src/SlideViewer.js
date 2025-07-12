@@ -26,6 +26,34 @@ const SlideViewer = ({ slides }) => {
     const isCode = (line) => line.trim().startsWith("```");
     const isTable = (line) => line.trim().startsWith("```table");
     
+    const renderKeepInMindContent = (content) => {
+        if (!content) return "Notes and tips will appear here";
+        
+        const lines = content.split('\n').filter(line => line.trim());
+        return lines.map((line, index) => {
+            const trimmedLine = line.trim();
+            if (trimmedLine.startsWith('•')) {
+                return (
+                    <div key={index} style={{ 
+                        marginBottom: '0.5rem',
+                        paddingLeft: '0.5rem',
+                        display: 'flex',
+                        alignItems: 'flex-start',
+                        gap: '0.5rem'
+                    }}>
+                        <span style={{ color: '#667eea', fontWeight: 'bold' }}>•</span>
+                        <span>{parseTextFormatting(trimmedLine.substring(1).trim())}</span>
+                    </div>
+                );
+            }
+            return (
+                <div key={index} style={{ marginBottom: '0.5rem' }}>
+                    {parseTextFormatting(trimmedLine)}
+                </div>
+            );
+        });
+    };
+    
     const highlightSyntax = (line) => {
         if (line.trim().startsWith('#')) return line;
         
@@ -299,7 +327,30 @@ const SlideViewer = ({ slides }) => {
                     {slide.title}
                 </h2>
 
-                {renderSlideContent(slide.points)}
+                <div style={{ display: "flex", gap: "2rem" }}>
+                    <div style={{ flex: "2" }}>
+                        {renderSlideContent(slide.points)}
+                    </div>
+                    <div style={{ 
+                        flex: "1", 
+                        padding: "1.5rem", 
+                        alignSelf: "flex-start",
+                        height: "fit-content"
+                    }}>
+                        <h4 style={{
+                            fontSize: "0.9rem",
+                            fontWeight: "600",
+                            color: "#495057",
+                            marginBottom: "1rem",
+                            borderBottom: "2px solid #dee2e6",
+                            paddingBottom: "0.5rem",
+                            lineHeight: "1.4"
+                        }}>
+                            💡 {slide.keepInMind ? parseTextFormatting(slide.keepInMind) : "Tips will appear here"}
+                        </h4>
+
+                    </div>
+                </div>
 
                 {slide.note && (
                     <div

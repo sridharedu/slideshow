@@ -7,7 +7,8 @@ export const completableFutureSlides = [
             "Implements `Future` + `CompletionStage` interfaces",
             "🔥 Non-blocking alternative to traditional `Future.get()`"
         ],
-        note: "🧠 CompletableFuture = Future + callback chaining + composition"
+        note: "🧠 CompletableFuture = Future + callback chaining + composition",
+        keepInMind: "CompletableFuture is Java's main tool for asynchronous, callback-based programming."
     },
     {
         title: "Creating CompletableFuture",
@@ -16,13 +17,14 @@ export const completableFutureSlides = [
             "`CompletableFuture.runAsync(() -> doWork())` → no return value",
             "`CompletableFuture.completedFuture(value)` → already completed",
             "🔥 supplyAsync for data, runAsync for side effects"
-        ]
+        ],
+        keepInMind: "`supplyAsync` is for when you need a result; `runAsync` is for fire-and-forget tasks."
     },
     {
         title: "Basic Example",
         points: [
             "```java",
-            "CompletableFuture<String> future = CompletableFuture.supplyAsync(() -> {",
+            "CompletableFuture<String> future = CompletableFuture.supplyAsync(() => {",
             "    // Simulate API call",
             "    Thread.sleep(1000);",
             "    return \"Hello World\";",
@@ -34,7 +36,8 @@ export const completableFutureSlides = [
             "// Get result (blocks here)",
             "String result = future.get();",
             "```"
-        ]
+        ],
+        keepInMind: "The `get()` call is blocking and should be used sparingly, mainly in tests or at the very end of a process."
     },
     {
         title: "Chaining with thenApply",
@@ -47,7 +50,8 @@ export const completableFutureSlides = [
             "    .thenApply(x -> x * 2);",
             "```",
             "🔥 Chain multiple transformations without blocking"
-        ]
+        ],
+        keepInMind: "`thenApply` is for synchronous transformations of a future's result."
     },
     {
         title: "Combining Futures",
@@ -61,7 +65,8 @@ export const completableFutureSlides = [
             "    (n, a) -> n + \" is \" + a + \" years old\");",
             "```",
             "✔️ Both futures run in parallel"
-        ]
+        ],
+        keepInMind: "`thenCombine` is ideal for orchestrating two parallel, independent asynchronous tasks."
     },
     {
         title: "Chaining Dependent Calls",
@@ -73,7 +78,8 @@ export const completableFutureSlides = [
             "    .thenCompose(user -> getOrder(user.getId()));",
             "```",
             "🔥 Avoids nested Future<Future<T>> problem"
-        ]
+        ],
+        keepInMind: "`thenCompose` is for when the next asynchronous operation depends on the result of the previous one."
     },
     {
         title: "Error Handling",
@@ -88,7 +94,8 @@ export const completableFutureSlides = [
             "        return ex != null ? \"Error\" : result;",
             "    });",
             "```"
-        ]
+        ],
+        keepInMind: "Proper error handling is critical in async chains to prevent silent failures."
     },
     {
         title: "Waiting for Multiple Futures",
@@ -104,7 +111,8 @@ export const completableFutureSlides = [
             "    future1, future2, future3",
             ");",
             "```"
-        ]
+        ],
+        keepInMind: "`allOf` is for when you need to wait for a group of tasks to finish before proceeding."
     },
     {
         title: "Custom Thread Pools",
@@ -120,7 +128,8 @@ export const completableFutureSlides = [
             "executor.shutdown(); // Don't forget!",
             "```",
             "🔥 Always shutdown custom executors"
-        ]
+        ],
+        keepInMind: "Using a custom executor is crucial for tuning performance and isolating long-running tasks."
     },
     {
         title: "Best Practices",
@@ -132,6 +141,7 @@ export const completableFutureSlides = [
             "❌ Don't forget to shutdown custom executors",
             "❌ Avoid get() in production code"
         ],
-        note: "🧠 Interview tip: CompletableFuture enables reactive, non-blocking programming"
+        note: "🧠 Interview tip: CompletableFuture enables reactive, non-blocking programming",
+        keepInMind: "The core principle is to build a pipeline of asynchronous operations and only block when absolutely necessary."
     }
 ];

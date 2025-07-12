@@ -7,7 +7,8 @@ export const entityRelationshipsSlides = [
       "Bidirectional vs Unidirectional mappings",
       "🔥 Critical for proper database design"
     ],
-    note: "🧠 Relationships define how entities connect and interact"
+    note: "🧠 Relationships define how entities connect and interact",
+    keepInMind: "Correctly mapping relationships is the cornerstone of a well-designed data layer."
   },
   {
     title: "Relationship Types",
@@ -19,7 +20,8 @@ export const entityRelationshipsSlides = [
       "@ManyToOne | N:1 relationship | Orders → User",
       "@ManyToMany | N:N relationship | Students ↔ Courses",
       "```"
-    ]
+    ],
+    keepInMind: "The choice of relationship type directly impacts your database schema and query performance."
   },
   {
     title: "@OneToOne Relationship",
@@ -46,7 +48,8 @@ export const entityRelationshipsSlides = [
       "    private User user;",
       "}",
       "```"
-    ]
+    ],
+    keepInMind: "In a bidirectional OneToOne, one side must be the owner (with `@JoinColumn`) and the other the inverse side (with `mappedBy`)."
   },
   {
     title: "@OneToMany Relationship",
@@ -66,7 +69,8 @@ export const entityRelationshipsSlides = [
       "}",
       "```",
       "🔥 mappedBy indicates the owning side"
-    ]
+    ],
+    keepInMind: "The `@ManyToOne` side is almost always the owning side in a OneToMany relationship."
   },
   {
     title: "@ManyToMany Relationship",
@@ -89,7 +93,8 @@ export const entityRelationshipsSlides = [
       "    private Set<Student> students = new HashSet<>();",
       "}",
       "```"
-    ]
+    ],
+    keepInMind: "ManyToMany relationships require a join table to store the associations."
   },
   {
     title: "Cascade Types",
@@ -102,7 +107,8 @@ export const entityRelationshipsSlides = [
       "REFRESH | Reload related entities | Sync from database",
       "ALL | All cascade operations | Full lifecycle management",
       "```"
-    ]
+    ],
+    keepInMind: "Use cascade operations with caution, as they can have unintended side effects on related data."
   },
   {
     title: "Fetch Types",
@@ -119,7 +125,8 @@ export const entityRelationshipsSlides = [
       "✔️ LAZY = Load when accessed",
       "✔️ EAGER = Load immediately",
       "🔥 Use LAZY to avoid N+1 query problem"
-    ]
+    ],
+    keepInMind: "`FetchType.LAZY` is your best defense against the dreaded N+1 query problem."
   },
   {
     title: "Bidirectional Helper Methods",
@@ -142,7 +149,8 @@ export const entityRelationshipsSlides = [
       "}",
       "```",
       "🔥 Keeps both sides of relationship in sync"
-    ]
+    ],
+    keepInMind: "Helper methods are essential for maintaining data integrity in bidirectional relationships."
   },
   {
     title: "Join Strategies",
@@ -161,7 +169,8 @@ export const entityRelationshipsSlides = [
       "// Shared Primary Key",
       "@PrimaryKeyJoinColumn",
       "```"
-    ]
+    ],
+    keepInMind: "While `@JoinColumn` is the most common, knowing other join strategies can be useful for specific schema designs."
   },
   {
     title: "Best Practices",
@@ -175,6 +184,7 @@ export const entityRelationshipsSlides = [
       "❌ Don't create circular references in toString()",
       "❌ Don't ignore the owning side of relationships"
     ],
-    note: "🧠 Interview tip: Understand fetch types, cascade operations, and N+1 query problem"
+    note: "🧠 Interview tip: Understand fetch types, cascade operations, and N+1 query problem",
+    keepInMind: "Properly managing relationships involves a combination of mapping, fetching, and lifecycle management."
   }
 ];

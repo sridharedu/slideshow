@@ -7,7 +7,8 @@ export const pomFileSlides = [
       "Contains metadata about the project",
       "🔥 Heart of every Maven project"
     ],
-    note: "🧠 POM = Project blueprint + dependency manager + build instructions"
+    note: "🧠 POM = Project blueprint + dependency manager + build instructions",
+    keepInMind: "The `pom.xml` is the single source of truth for a Maven project's configuration."
   },
   {
     title: "Basic POM Structure",
@@ -22,7 +23,8 @@ export const pomFileSlides = [
       "  <packaging>jar</packaging>",
       "</project>",
       "```"
-    ]
+    ],
+    keepInMind: "These coordinates uniquely identify your project in the Maven ecosystem."
   },
   {
     title: "Essential POM Elements",
@@ -34,7 +36,8 @@ export const pomFileSlides = [
       "version | Project version | 1.0.0-SNAPSHOT",
       "packaging | Output type | jar, war, pom",
       "```"
-    ]
+    ],
+    keepInMind: "Getting these right is the first step to a well-structured Maven project."
   },
   {
     title: "Adding Dependencies",
@@ -49,7 +52,8 @@ export const pomFileSlides = [
       "</dependencies>",
       "```",
       "🔥 Use Maven Central Repository to find dependencies"
-    ]
+    ],
+    keepInMind: "Maven will automatically download this dependency and any of its transitive dependencies."
   },
   {
     title: "Dependency Scopes",
@@ -61,7 +65,8 @@ export const pomFileSlides = [
       "provided | Runtime provided by container | Servlet API",
       "runtime | Only at runtime | MySQL driver",
       "```"
-    ]
+    ],
+    keepInMind: "Understanding scopes is crucial for managing your classpath and avoiding unnecessary dependencies."
   },
   {
     title: "Spring Boot POM Example",
@@ -80,7 +85,8 @@ export const pomFileSlides = [
       "  </dependency>",
       "</dependencies>",
       "```"
-    ]
+    ],
+    keepInMind: "The Spring Boot starter parent provides sensible defaults and manages dependency versions for you."
   },
   {
     title: "Build Configuration",
@@ -96,7 +102,8 @@ export const pomFileSlides = [
       "</build>",
       "```",
       "🔥 Plugins extend Maven's capabilities"
-    ]
+    ],
+    keepInMind: "The `spring-boot-maven-plugin` is essential for creating executable JARs."
   },
   {
     title: "Properties Section",
@@ -110,7 +117,8 @@ export const pomFileSlides = [
       "</properties>",
       "```",
       "🔥 Use properties with property.name syntax"
-    ]
+    ],
+    keepInMind: "Using properties makes it easy to manage versions and other configuration in one place."
   },
   {
     title: "Common Maven Commands",
@@ -128,7 +136,8 @@ export const pomFileSlides = [
       "# Install to local repository",
       "mvn install",
       "```"
-    ]
+    ],
+    keepInMind: "These commands cover the most common phases of the Maven build lifecycle."
   },
   {
     title: "Best Practices",
@@ -141,7 +150,8 @@ export const pomFileSlides = [
       "❌ Don't mix different Spring versions",
       "❌ Don't use SNAPSHOT versions in production"
     ],
-    note: "🧠 Interview tip: Explain dependency resolution and transitive dependencies"
+    note: "🧠 Interview tip: Explain dependency resolution and transitive dependencies",
+    keepInMind: "A clean and well-organized `pom.xml` is a sign of a professional developer."
   },
   {
     title: "POM File Summary",
@@ -155,6 +165,7 @@ export const pomFileSlides = [
       "**Maven Commands** - clean, compile, test, package, install",
       "🔥 POM file is the blueprint for Maven project structure and dependencies"
     ],
-    note: "🧠 Understanding POM structure is essential for Java project management"
+    note: "🧠 Understanding POM structure is essential for Java project management",
+    keepInMind: "Mastering the `pom.xml` is a key skill for any Java developer using Maven."
   }
 ];

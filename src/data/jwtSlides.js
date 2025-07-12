@@ -7,7 +7,8 @@ export const jwtSlides = [
       "Stateless - no server-side session storage needed",
       "🔥 Industry standard for modern web APIs"
     ],
-    note: "🧠 JWT = Header + Payload + Signature (all Base64 encoded)"
+    note: "🧠 JWT = Header + Payload + Signature (all Base64 encoded)",
+    keepInMind: "JWTs are a way to securely transmit information between parties as a JSON object."
   },
   {
     title: "JWT Structure",
@@ -23,7 +24,8 @@ export const jwtSlides = [
       "Payload | Claims/Data | User info + metadata",
       "Signature | Verification | Ensures integrity",
       "```"
-    ]
+    ],
+    keepInMind: "The signature is the most critical part for security, as it verifies the token hasn't been tampered with."
   },
   {
     title: "JWT Header",
@@ -39,7 +41,8 @@ export const jwtSlides = [
       "• HS256 (HMAC SHA-256) - symmetric",
       "• RS256 (RSA SHA-256) - asymmetric",
       "🔥 Algorithm determines how signature is created"
-    ]
+    ],
+    keepInMind: "HS256 is simpler but requires sharing a secret key; RS256 is more secure for distributed systems."
   },
   {
     title: "JWT Payload (Claims)",
@@ -56,7 +59,8 @@ export const jwtSlides = [
       "```",
       "Standard claims: `sub`, `iat`, `exp`, `iss`, `aud`",
       "Custom claims: any application-specific data"
-    ]
+    ],
+    keepInMind: "The payload is readable by anyone, so never store sensitive information in it."
   },
   {
     title: "JWT in Spring Boot",
@@ -70,7 +74,8 @@ export const jwtSlides = [
       "</dependency>",
       "```",
       "🔥 Also need jjwt-impl and jjwt-jackson for runtime"
-    ]
+    ],
+    keepInMind: "The `jjwt` library is the most popular choice for working with JWTs in Java."
   },
   {
     title: "Creating JWT Token",
@@ -90,7 +95,8 @@ export const jwtSlides = [
       "    }",
       "}",
       "```"
-    ]
+    ],
+    keepInMind: "The secret key should be stored securely and not hardcoded in your application."
   },
   {
     title: "Validating JWT Token",
@@ -114,7 +120,8 @@ export const jwtSlides = [
       "        .getBody().getSubject();",
       "}",
       "```"
-    ]
+    ],
+    keepInMind: "Token validation must handle various exceptions, such as expired tokens or signature errors."
   },
   {
     title: "JWT Authentication Flow",
@@ -126,7 +133,8 @@ export const jwtSlides = [
       "5. Client sends token in `Authorization: Bearer <token>`",
       "6. Server validates token on each request",
       "🔥 No server-side session storage needed"
-    ]
+    ],
+    keepInMind: "This stateless flow is what makes JWTs so scalable and well-suited for microservices."
   },
   {
     title: "JWT Security Filter",
@@ -148,7 +156,8 @@ export const jwtSlides = [
       "    }",
       "}",
       "```"
-    ]
+    ],
+    keepInMind: "This filter intercepts every request to validate the JWT and set up the Spring Security context."
   },
   {
     title: "JWT Best Practices",
@@ -162,6 +171,7 @@ export const jwtSlides = [
       "❌ Don't use for long-lived sessions",
       "❌ Don't trust client-side validation only"
     ],
-    note: "🧠 Interview tip: JWT is stateless but requires careful security implementation"
+    note: "🧠 Interview tip: JWT is stateless but requires careful security implementation",
+    keepInMind: "JWTs are powerful, but they come with their own set of security considerations that must be addressed."
   }
 ];

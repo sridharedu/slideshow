@@ -7,7 +7,8 @@ export const javaJ2EESlides = [
       "Provides APIs and runtime environment for enterprise applications",
       "🔥 Foundation for modern enterprise Java development"
     ],
-    note: "🧠 J2EE = Enterprise Java + Distributed Computing + Component Architecture"
+    note: "🧠 J2EE = Enterprise Java + Distributed Computing + Component Architecture",
+    keepInMind: "J2EE provides a standard, vendor-neutral specification for building enterprise applications."
   },
   {
     title: "J2EE Architecture Tiers",
@@ -19,7 +20,8 @@ export const javaJ2EESlides = [
       "Business Tier | EJB, CDI beans | Business logic",
       "Data Tier | JPA, JDBC | Data persistence",
       "```"
-    ]
+    ],
+    keepInMind: "This tiered architecture promotes separation of concerns, a key principle in software design."
   },
   {
     title: "Core J2EE Technologies",
@@ -31,7 +33,8 @@ export const javaJ2EESlides = [
       "**JMS**: Java Message Service for asynchronous communication",
       "**JNDI**: Java Naming and Directory Interface",
       "🔥 Each technology serves specific enterprise needs"
-    ]
+    ],
+    keepInMind: "While some of these technologies are less common now, they laid the groundwork for modern frameworks like Spring."
   },
   {
     title: "Servlet Lifecycle",
@@ -53,7 +56,8 @@ export const javaJ2EESlides = [
       "    }",
       "}",
       "```"
-    ]
+    ],
+    keepInMind: "Understanding the servlet lifecycle is fundamental to web development in Java."
   },
   {
     title: "Enterprise JavaBeans (EJB)",
@@ -64,7 +68,8 @@ export const javaJ2EESlides = [
       "Message-Driven Bean | Async processing | Email notifications",
       "Entity Bean | Data persistence | Deprecated (use JPA)",
       "```"
-    ]
+    ],
+    keepInMind: "EJBs were the original component model for business logic in J2EE, now largely superseded by CDI beans and Spring beans."
   },
   {
     title: "Session Bean Example",
@@ -89,7 +94,8 @@ export const javaJ2EESlides = [
       "    }",
       "}",
       "```"
-    ]
+    ],
+    keepInMind: "`@Stateless` beans are pooled by the container, making them efficient for handling concurrent requests."
   },
   {
     title: "JPA Entity Mapping",
@@ -111,7 +117,8 @@ export const javaJ2EESlides = [
       "    // Getters and setters",
       "}",
       "```"
-    ]
+    ],
+    keepInMind: "JPA provides a standard way to map your Java objects to a relational database, abstracting away the SQL."
   },
   {
     title: "Dependency Injection (CDI)",
@@ -133,7 +140,8 @@ export const javaJ2EESlides = [
       "    }",
       "}",
       "```"
-    ]
+    ],
+    keepInMind: "CDI (Contexts and Dependency Injection) is the J2EE standard for dependency injection, similar to Spring's DI."
   },
   {
     title: "Java Message Service (JMS)",
@@ -157,7 +165,8 @@ export const javaJ2EESlides = [
       "    }",
       "}",
       "```"
-    ]
+    ],
+    keepInMind: "JMS is a powerful tool for building decoupled, asynchronous systems."
   },
   {
     title: "Best Practices",
@@ -171,7 +180,8 @@ export const javaJ2EESlides = [
       "❌ Don't use entity beans (deprecated)",
       "❌ Don't ignore transaction boundaries"
     ],
-    note: "🧠 Interview tip: Explain the difference between J2EE and Spring Framework approaches"
+    note: "🧠 Interview tip: Explain the difference between J2EE and Spring Framework approaches",
+    keepInMind: "Many of these best practices are still relevant today, even in modern Spring applications."
   },
   {
     title: "Java J2EE Summary",
@@ -185,6 +195,7 @@ export const javaJ2EESlides = [
       "**JMS** - Asynchronous messaging for distributed systems",
       "🔥 Foundation for enterprise Java development with comprehensive APIs"
     ],
-    note: "🧠 J2EE provides enterprise-grade solutions for complex distributed applications"
+    note: "🧠 J2EE provides enterprise-grade solutions for complex distributed applications",
+    keepInMind: "While Spring has become more popular, understanding J2EE provides valuable context for the evolution of enterprise Java."
   }
 ];

@@ -7,7 +7,8 @@ export const gitSlides = [
       "Enables collaboration among multiple developers",
       "🔥 Most popular version control system worldwide"
     ],
-    note: "🧠 Git = Version Control + Collaboration + History Tracking"
+    note: "🧠 Git = Version Control + Collaboration + History Tracking",
+    keepInMind: "Git's distributed nature means every developer has a full copy of the project history, enabling offline work and robust branching."
   },
   {
     title: "Git vs Other VCS",
@@ -19,7 +20,8 @@ export const gitSlides = [
       "Branching | Fast & Easy | Slow | Limited",
       "Performance | Fast | Moderate | Slow",
       "```"
-    ]
+    ],
+    keepInMind: "Git's speed and powerful branching capabilities are its key advantages over older, centralized systems."
   },
   {
     title: "Git Architecture",
@@ -29,7 +31,8 @@ export const gitSlides = [
       "**Local Repository**: Your local Git database",
       "**Remote Repository**: Shared repository (GitHub, GitLab)",
       "🔥 Three-tree architecture enables powerful workflows"
-    ]
+    ],
+    keepInMind: "The staging area is a unique feature that allows you to craft your commits precisely."
   },
   {
     title: "Basic Git Commands",
@@ -51,7 +54,8 @@ export const gitSlides = [
       "# Commit changes",
       "git commit -m \"commit message\"",
       "```"
-    ]
+    ],
+    keepInMind: "`git add` and `git commit` are the two most fundamental commands in your daily workflow."
   },
   {
     title: "Git Workflow",
@@ -64,7 +68,8 @@ export const gitSlides = [
       "git pull | Download from remote | git pull origin main",
       "git fetch | Download without merge | git fetch origin",
       "```"
-    ]
+    ],
+    keepInMind: "`git pull` is actually a `git fetch` followed by a `git merge`."
   },
   {
     title: "Branching & Merging",
@@ -85,7 +90,8 @@ export const gitSlides = [
       "# Delete branch",
       "git branch -d feature-branch",
       "```"
-    ]
+    ],
+    keepInMind: "Branching is cheap and easy in Git, so use it for everything: features, bug fixes, experiments."
   },
   {
     title: "Git Log & History",
@@ -106,7 +112,8 @@ export const gitSlides = [
       "# Compare branches",
       "git diff main..feature-branch",
       "```"
-    ]
+    ],
+    keepInMind: "`git log` is your time machine; learn its options to navigate your project's history effectively."
   },
   {
     title: "Undoing Changes",
@@ -127,7 +134,8 @@ export const gitSlides = [
       "# Revert commit (safe)",
       "git revert <commit-hash>",
       "```"
-    ]
+    ],
+    keepInMind: "`git revert` is the safest way to undo changes on a shared branch, as it creates a new commit."
   },
   {
     title: "Remote Repositories",
@@ -148,7 +156,8 @@ export const gitSlides = [
       "# Fetch updates",
       "git fetch --all",
       "```"
-    ]
+    ],
+    keepInMind: "`origin` is just a conventional name for your main remote repository; you can name it anything."
   },
   {
     title: "Git Best Practices",
@@ -162,7 +171,8 @@ export const gitSlides = [
       "❌ Don't commit sensitive information",
       "❌ Don't force push to shared branches"
     ],
-    note: "🧠 Interview tip: Explain Git workflow and conflict resolution strategies"
+    note: "🧠 Interview tip: Explain Git workflow and conflict resolution strategies",
+    keepInMind: "Good commit messages are crucial for a maintainable and understandable project history."
   },
   {
     title: "Git Summary",
@@ -177,6 +187,7 @@ export const gitSlides = [
       "**Remote Repos** - Collaborate through GitHub, GitLab, etc.",
       "🔥 Essential tool for modern software development and team collaboration"
     ],
-    note: "🧠 Git enables distributed development and maintains complete project history"
+    note: "🧠 Git enables distributed development and maintains complete project history",
+    keepInMind: "Mastering Git is a fundamental skill for any software developer."
   }
 ];

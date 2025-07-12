@@ -7,7 +7,8 @@ export const swaggerSlides = [
       "Interactive API documentation with UI",
       "🔥 Industry standard for REST API documentation"
     ],
-    note: "🧠 Swagger = API docs + interactive testing + code generation"
+    note: "🧠 Swagger = API docs + interactive testing + code generation",
+    keepInMind: "Swagger provides a contract for your API that both humans and machines can understand."
   },
   {
     title: "Swagger vs OpenAPI",
@@ -19,7 +20,8 @@ export const swaggerSlides = [
       "Swagger UI | Web interface | Still called Swagger UI",
       "Swagger Codegen | Code generator | Now OpenAPI Generator",
       "```"
-    ]
+    ],
+    keepInMind: "OpenAPI is the specification; Swagger is the set of tools that implement the specification."
   },
   {
     title: "Adding Swagger to Spring Boot",
@@ -33,7 +35,8 @@ export const swaggerSlides = [
       "</dependency>",
       "```",
       "🔥 SpringDoc is the modern replacement for SpringFox"
-    ]
+    ],
+    keepInMind: "The `springdoc-openapi` library makes integrating OpenAPI 3 with Spring Boot seamless."
   },
   {
     title: "Basic Configuration",
@@ -52,7 +55,8 @@ export const swaggerSlides = [
       "    }",
       "}",
       "```"
-    ]
+    ],
+    keepInMind: "This configuration provides the basic metadata for your API documentation."
   },
   {
     title: "Documenting Controllers",
@@ -71,7 +75,8 @@ export const swaggerSlides = [
       "    }",
       "}",
       "```"
-    ]
+    ],
+    keepInMind: "These annotations are the key to generating rich, descriptive API documentation from your code."
   },
   {
     title: "Documenting Request/Response",
@@ -90,7 +95,8 @@ export const swaggerSlides = [
       "    private String email;",
       "}",
       "```"
-    ]
+    ],
+    keepInMind: "`@Schema` allows you to provide detailed information about your data models."
   },
   {
     title: "Accessing Swagger UI",
@@ -100,7 +106,8 @@ export const swaggerSlides = [
       "• OpenAPI JSON: `http://localhost:8080/v3/api-docs`",
       "• OpenAPI YAML: `http://localhost:8080/v3/api-docs.yaml`",
       "🔥 Interactive testing directly from browser"
-    ]
+    ],
+    keepInMind: "The Swagger UI is a powerful tool for exploring and testing your API without writing any code."
   },
   {
     title: "Customizing Swagger UI",
@@ -115,7 +122,8 @@ export const swaggerSlides = [
       "  api-docs:",
       "    path: /v3/api-docs",
       "```"
-    ]
+    ],
+    keepInMind: "You can customize the look and feel of the Swagger UI to match your project's branding."
   },
   {
     title: "Security Documentation",
@@ -136,7 +144,8 @@ export const swaggerSlides = [
       "```java",
       "@SecurityRequirement(name = \"bearerAuth\")",
       "```"
-    ]
+    ],
+    keepInMind: "Properly documenting your security scheme is essential for making your API usable by others."
   },
   {
     title: "Best Practices",
@@ -149,6 +158,7 @@ export const swaggerSlides = [
       "❌ Don't expose sensitive endpoints in docs",
       "❌ Don't forget to update docs when API changes"
     ],
-    note: "🧠 Interview tip: Swagger improves API usability and developer experience"
+    note: "🧠 Interview tip: Swagger improves API usability and developer experience",
+    keepInMind: "Good API documentation is a sign of a well-designed and professional API."
   }
 ];

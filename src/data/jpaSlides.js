@@ -7,7 +7,8 @@ export const jpaSlides = [
       "Standard API for database operations",
       "🔥 Hibernate is most popular JPA implementation"
     ],
-    note: "🧠 JPA = Specification, Hibernate = Implementation"
+    note: "🧠 JPA = Specification, Hibernate = Implementation",
+    keepInMind: "JPA provides the 'what' (the API), and Hibernate provides the 'how' (the implementation)."
   },
   {
     title: "JPA vs JDBC",
@@ -20,7 +21,8 @@ export const jpaSlides = [
       "Database specific | Yes | No",
       "Learning curve | Low | Medium",
       "```"
-    ]
+    ],
+    keepInMind: "JPA trades some control for a massive reduction in boilerplate code and improved portability."
   },
   {
     title: "JPA Setup in Spring Boot",
@@ -37,7 +39,8 @@ export const jpaSlides = [
       "</dependency>",
       "```",
       "🔥 Includes Hibernate, Spring Data JPA, and connection pooling"
-    ]
+    ],
+    keepInMind: "The `spring-boot-starter-data-jpa` is your one-stop shop for persistence in a Spring Boot application."
   },
   {
     title: "JPA Entity",
@@ -59,7 +62,8 @@ export const jpaSlides = [
       "    // constructors, getters, setters",
       "}",
       "```"
-    ]
+    ],
+    keepInMind: "An entity is a simple POJO (Plain Old Java Object) annotated to map to a database table."
   },
   {
     title: "JPA Annotations",
@@ -73,7 +77,8 @@ export const jpaSlides = [
       "@Column | Column mapping | @Column(name=\"email\")",
       "@Temporal | Date/Time mapping | @Temporal(DATE)",
       "```"
-    ]
+    ],
+    keepInMind: "These annotations are the bridge between your object-oriented code and the relational database."
   },
   {
     title: "JPA Repository",
@@ -92,7 +97,8 @@ export const jpaSlides = [
       "}",
       "```",
       "🔥 No implementation needed - Spring generates it"
-    ]
+    ],
+    keepInMind: "Spring Data JPA repositories are a powerful abstraction that eliminates the need for DAO implementation."
   },
   {
     title: "Entity Relationships",
@@ -111,7 +117,8 @@ export const jpaSlides = [
       "    private User user;",
       "}",
       "```"
-    ]
+    ],
+    keepInMind: "Properly mapping entity relationships is crucial for a well-designed and performant data model."
   },
   {
     title: "JPA Configuration",
@@ -130,7 +137,8 @@ export const jpaSlides = [
       "      hibernate:",
       "        format_sql: true",
       "```"
-    ]
+    ],
+    keepInMind: "`ddl-auto: create-drop` is great for development but should never be used in production."
   },
   {
     title: "Entity Manager",
@@ -153,7 +161,8 @@ export const jpaSlides = [
       "    }",
       "}",
       "```"
-    ]
+    ],
+    keepInMind: "While Spring Data JPA handles most cases, you can always drop down to the EntityManager for fine-grained control."
   },
   {
     title: "Best Practices",
@@ -167,6 +176,7 @@ export const jpaSlides = [
       "❌ Don't ignore N+1 query problem",
       "❌ Don't fetch unnecessary data"
     ],
-    note: "🧠 Interview tip: JPA simplifies database operations but requires understanding of ORM concepts"
+    note: "🧠 Interview tip: JPA simplifies database operations but requires understanding of ORM concepts",
+    keepInMind: "The N+1 query problem is a classic performance pitfall in JPA that every developer should know how to avoid."
   }
 ];

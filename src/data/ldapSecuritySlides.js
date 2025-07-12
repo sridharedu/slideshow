@@ -7,7 +7,8 @@ export const ldapSecuritySlides = [
       "Stores user accounts, groups, organizational data",
       "🔥 Enterprise standard for user management"
     ],
-    note: "🧠 LDAP = Directory service + Authentication + Authorization"
+    note: "🧠 LDAP = Directory service + Authentication + Authorization",
+    keepInMind: "LDAP is like a phonebook for your organization, but for users, computers, and other resources."
   },
   {
     title: "LDAP vs Database Auth",
@@ -20,7 +21,8 @@ export const ldapSecuritySlides = [
       "Enterprise | Limited | Standard",
       "Scalability | App-specific | Organization-wide",
       "```"
-    ]
+    ],
+    keepInMind: "The key benefit of LDAP is centralizing user management, which is crucial in a large enterprise."
   },
   {
     title: "Spring Security LDAP Setup",
@@ -40,7 +42,8 @@ export const ldapSecuritySlides = [
       "    <artifactId>spring-security-ldap</artifactId>",
       "</dependency>",
       "```"
-    ]
+    ],
+    keepInMind: "Spring Security provides excellent, out-of-the-box integration with LDAP."
   },
   {
     title: "LDAP Configuration",
@@ -60,7 +63,8 @@ export const ldapSecuritySlides = [
       "      search-base: ou=groups",
       "      search-filter: member={0}",
       "```"
-    ]
+    ],
+    keepInMind: "This configuration tells Spring Security how to connect to your LDAP server and find users and groups."
   },
   {
     title: "Security Configuration",
@@ -82,7 +86,8 @@ export const ldapSecuritySlides = [
       "    }",
       "}",
       "```"
-    ]
+    ],
+    keepInMind: "This is a standard Spring Security configuration; the LDAP integration happens under the hood."
   },
   {
     title: "LDAP Authentication Manager",
@@ -100,7 +105,8 @@ export const ldapSecuritySlides = [
       "    return ldapAuth.and().build();",
       "}",
       "```"
-    ]
+    ],
+    keepInMind: "This bean configures how Spring Security will authenticate users against the LDAP directory."
   },
   {
     title: "Custom LDAP Context Source",
@@ -116,7 +122,8 @@ export const ldapSecuritySlides = [
       "    return contextSource;",
       "}",
       "```"
-    ]
+    ],
+    keepInMind: "You can programmatically configure the LDAP connection for more complex scenarios."
   },
   {
     title: "LDAP User Details Service",
@@ -137,7 +144,8 @@ export const ldapSecuritySlides = [
       "    }",
       "}",
       "```"
-    ]
+    ],
+    keepInMind: "You can provide a custom `UserDetailsService` to map LDAP entries to your application's `UserDetails`."
   },
   {
     title: "Role Mapping from LDAP Groups",
@@ -154,7 +162,8 @@ export const ldapSecuritySlides = [
       "}",
       "```",
       "🔥 Maps LDAP groups to Spring Security roles"
-    ]
+    ],
+    keepInMind: "This is how you translate your organization's group structure into application-level roles."
   },
   {
     title: "Best Practices",
@@ -168,6 +177,7 @@ export const ldapSecuritySlides = [
       "❌ Don't ignore SSL certificate validation",
       "❌ Don't fetch all user attributes unnecessarily"
     ],
-    note: "🧠 Interview tip: LDAP enables enterprise SSO and centralized user management"
+    note: "🧠 Interview tip: LDAP enables enterprise SSO and centralized user management",
+    keepInMind: "Security is paramount when integrating with LDAP, as it's the key to your organization's user data."
   }
 ];

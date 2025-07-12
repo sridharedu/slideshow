@@ -7,7 +7,8 @@ export const zipkinSlides = [
       "Collects timing data to identify bottlenecks",
       "🔥 Essential for debugging microservice interactions"
     ],
-    note: "🧠 Zipkin = Request journey tracker across multiple services"
+    note: "🧠 Zipkin = Request journey tracker across multiple services",
+    keepInMind: "Zipkin provides the visibility you lose when moving from a monolith to microservices."
   },
   {
     title: "Why Use Zipkin?",
@@ -19,7 +20,8 @@ export const zipkinSlides = [
       "Error propagation | Track where errors originate",
       "Performance bottlenecks | Find slowest operations",
       "```"
-    ]
+    ],
+    keepInMind: "It answers the question: 'Where did my request spend its time?'"
   },
   {
     title: "Zipkin Architecture",
@@ -30,7 +32,8 @@ export const zipkinSlides = [
       "**Query Service**: Retrieves traces for UI",
       "**Web UI**: Visualizes traces and dependencies",
       "🔥 Lightweight and language-agnostic"
-    ]
+    ],
+    keepInMind: "The decoupled architecture makes Zipkin highly scalable and flexible."
   },
   {
     title: "Key Concepts",
@@ -42,7 +45,8 @@ export const zipkinSlides = [
       "Trace ID | Unique identifier for trace | abc123def456",
       "Span ID | Unique identifier for span | span789",
       "```"
-    ]
+    ],
+    keepInMind: "A trace is a tree of spans, representing the entire lifecycle of a request."
   },
   {
     title: "Spring Boot Integration",
@@ -59,7 +63,8 @@ export const zipkinSlides = [
       "spring.zipkin.base-url=http://localhost:9411",
       "spring.sleuth.zipkin.enabled=true",
       "```"
-    ]
+    ],
+    keepInMind: "Spring Cloud Sleuth provides the instrumentation, and Zipkin provides the backend."
   },
   {
     title: "Running Zipkin Server",
@@ -74,7 +79,8 @@ export const zipkinSlides = [
       "java -jar zipkin.jar",
       "```",
       "Access UI: http://localhost:9411"
-    ]
+    ],
+    keepInMind: "Running Zipkin in a Docker container is the quickest way to get started."
   },
   {
     title: "Custom Spans",
@@ -95,7 +101,8 @@ export const zipkinSlides = [
       "    }",
       "}",
       "```"
-    ]
+    ],
+    keepInMind: "Custom spans allow you to trace specific business logic within your application."
   },
   {
     title: "Sampling Configuration",
@@ -111,7 +118,8 @@ export const zipkinSlides = [
       "spring.sleuth.sampler.rate=100",
       "```",
       "🔥 Lower sampling in production to reduce overhead"
-    ]
+    ],
+    keepInMind: "Sampling is a trade-off between visibility and performance overhead."
   },
   {
     title: "Zipkin UI Features",
@@ -122,7 +130,8 @@ export const zipkinSlides = [
       "**Span Details**: Tags, logs, and timing info",
       "**Error Analysis**: Filter traces with errors",
       "🔥 Great for root cause analysis"
-    ]
+    ],
+    keepInMind: "The Zipkin UI is a powerful tool for debugging and exploring your microservice architecture."
   },
   {
     title: "Best Practices",
@@ -135,7 +144,8 @@ export const zipkinSlides = [
       "❌ Don't trace every single operation",
       "❌ Don't store sensitive data in tags"
     ],
-    note: "🧠 Interview tip: Explain how distributed tracing helps with microservice debugging"
+    note: "🧠 Interview tip: Explain how distributed tracing helps with microservice debugging",
+    keepInMind: "Effective tracing is about adding meaningful, contextual data to your spans."
   },
   {
     title: "Zipkin Summary",
@@ -149,6 +159,7 @@ export const zipkinSlides = [
       "**UI Features** - Visual trace analysis and dependency mapping",
       "🔥 Essential tool for microservice debugging and performance analysis"
     ],
-    note: "🧠 Zipkin helps identify bottlenecks and troubleshoot distributed systems effectively"
+    note: "🧠 Zipkin helps identify bottlenecks and troubleshoot distributed systems effectively",
+    keepInMind: "Zipkin is a must-have tool for any serious microservice deployment."
   }
 ];

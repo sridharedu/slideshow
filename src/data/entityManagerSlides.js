@@ -7,7 +7,8 @@ export const entityManagerSlides = [
       "Bridge between Java objects and database",
       "🔥 Lower-level API compared to Spring Data JPA"
     ],
-    note: "🧠 EntityManager = JPA's primary interface for CRUD operations"
+    note: "🧠 EntityManager = JPA's primary interface for CRUD operations",
+    keepInMind: "The EntityManager is your direct line to the persistence context, where all entity state changes are tracked."
   },
   {
     title: "EntityManager vs Repository",
@@ -20,7 +21,8 @@ export const entityManagerSlides = [
       "Queries | JPQL/Native SQL | Derived queries",
       "Learning curve | Steeper | Easier",
       "```"
-    ]
+    ],
+    keepInMind: "Use Spring Data JPA for standard CRUD; drop down to EntityManager for complex or custom logic."
   },
   {
     title: "Injecting EntityManager",
@@ -39,7 +41,8 @@ export const entityManagerSlides = [
       "}",
       "```",
       "🔥 @PersistenceContext is JPA standard, @Autowired is Spring-specific"
-    ]
+    ],
+    keepInMind: "`@PersistenceContext` is the idiomatic way to inject an EntityManager in a JPA environment."
   },
   {
     title: "Basic CRUD Operations",
@@ -67,7 +70,8 @@ export const entityManagerSlides = [
       "    entityManager.remove(user);",
       "}",
       "```"
-    ]
+    ],
+    keepInMind: "`persist` is for new entities, while `merge` is for updating existing, detached entities."
   },
   {
     title: "Entity States",
@@ -80,7 +84,8 @@ export const entityManagerSlides = [
       "Removed | Marked for deletion | Will be deleted",
       "```",
       "🔥 Only managed entities are automatically synchronized"
-    ]
+    ],
+    keepInMind: "Understanding entity states is crucial for debugging and managing data consistency."
   },
   {
     title: "JPQL Queries",
@@ -103,7 +108,8 @@ export const entityManagerSlides = [
       "        .getSingleResult();",
       "}",
       "```"
-    ]
+    ],
+    keepInMind: "JPQL is object-oriented and portable across different database vendors."
   },
   {
     title: "Native SQL Queries",
@@ -123,7 +129,8 @@ export const entityManagerSlides = [
       "        .getSingleResult();",
       "}",
       "```"
-    ]
+    ],
+    keepInMind: "Use native queries for database-specific features, but be aware that you lose portability."
   },
   {
     title: "Persistence Context Management",
@@ -144,7 +151,8 @@ export const entityManagerSlides = [
       "// Check if entity is managed",
       "boolean isManaged = entityManager.contains(user);",
       "```"
-    ]
+    ],
+    keepInMind: "Explicitly managing the persistence context is an advanced technique for performance tuning."
   },
   {
     title: "Batch Operations",
@@ -166,7 +174,8 @@ export const entityManagerSlides = [
       "}",
       "```",
       "🔥 Bulk operations bypass entity lifecycle callbacks"
-    ]
+    ],
+    keepInMind: "Bulk operations are much more performant than iterating and updating entities one by one."
   },
   {
     title: "Best Practices",
@@ -180,6 +189,7 @@ export const entityManagerSlides = [
       "❌ Don't ignore transaction boundaries",
       "❌ Don't keep EntityManager open too long"
     ],
-    note: "🧠 Interview tip: EntityManager provides fine-grained control over persistence operations"
+    note: "🧠 Interview tip: EntityManager provides fine-grained control over persistence operations",
+    keepInMind: "A deep understanding of EntityManager is what separates a novice from an expert JPA developer."
   }
 ];

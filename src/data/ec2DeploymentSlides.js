@@ -7,7 +7,8 @@ export const ec2DeploymentSlides = [
       "Pay-as-you-go pricing model",
       "🔥 Most popular AWS service for hosting applications"
     ],
-    note: "🧠 EC2 = Virtual Machine + AWS infrastructure management"
+    note: "🧠 EC2 = Virtual Machine + AWS infrastructure management",
+    keepInMind: "EC2 is the foundational building block for most applications running on AWS."
   },
   {
     title: "EC2 Instance Types",
@@ -19,7 +20,8 @@ export const ec2DeploymentSlides = [
       "m5.large | General purpose | Production web apps",
       "c5.xlarge | CPU intensive | High-performance computing",
       "```"
-    ]
+    ],
+    keepInMind: "Choosing the right instance type is a critical cost and performance optimization step."
   },
   {
     title: "Launching EC2 Instance",
@@ -30,7 +32,8 @@ export const ec2DeploymentSlides = [
       "4. Create/select key pair for SSH access",
       "5. Launch instance",
       "🔥 Use Amazon Linux 2 AMI for best AWS integration"
-    ]
+    ],
+    keepInMind: "Your security group and key pair are your first lines of defense; configure them carefully."
   },
   {
     title: "Security Groups Setup",
@@ -43,7 +46,8 @@ export const ec2DeploymentSlides = [
       "443 | HTTPS | 0.0.0.0/0 | Secure web traffic",
       "8080 | Custom | 0.0.0.0/0 | Spring Boot app",
       "```"
-    ]
+    ],
+    keepInMind: "Only open the ports you absolutely need, and restrict the source IP whenever possible."
   },
   {
     title: "Connecting to EC2",
@@ -54,7 +58,8 @@ export const ec2DeploymentSlides = [
       "```",
       "Windows users: Use PuTTY or WSL",
       "🔥 Keep .pem file secure (chmod 400)"
-    ]
+    ],
+    keepInMind: "Never share your private key, and ensure its file permissions are locked down."
   },
   {
     title: "Installing Java on EC2",
@@ -69,7 +74,8 @@ export const ec2DeploymentSlides = [
       "# Verify installation",
       "java -version",
       "```"
-    ]
+    ],
+    keepInMind: "Using a managed Java distribution like Amazon Corretto is recommended for AWS environments."
   },
   {
     title: "Deploying Spring Boot App",
@@ -84,7 +90,8 @@ export const ec2DeploymentSlides = [
       "java -jar app.jar",
       "```",
       "🔥 Use `nohup` to run in background"
-    ]
+    ],
+    keepInMind: "Automate this deployment process with a script or CI/CD pipeline for production."
   },
   {
     title: "Running App as Service",
@@ -106,7 +113,8 @@ export const ec2DeploymentSlides = [
       "[Install]",
       "WantedBy=multi-user.target",
       "```"
-    ]
+    ],
+    keepInMind: "Running your application as a service ensures it starts on boot and restarts on failure."
   },
   {
     title: "Managing the Service",
@@ -122,7 +130,8 @@ export const ec2DeploymentSlides = [
       "# View logs",
       "sudo journalctl -u myapp -f",
       "```"
-    ]
+    ],
+    keepInMind: "`journalctl` is your primary tool for debugging and monitoring your service on the instance."
   },
   {
     title: "Best Practices",
@@ -135,6 +144,7 @@ export const ec2DeploymentSlides = [
       "❌ Don't hardcode credentials in code",
       "❌ Don't leave unused instances running"
     ],
-    note: "🧠 Interview tip: Mention cost optimization and security best practices"
+    note: "🧠 Interview tip: Mention cost optimization and security best practices",
+    keepInMind: "Beyond basic deployment, focus on automation, monitoring, and security for a robust setup."
   }
 ];

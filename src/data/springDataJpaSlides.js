@@ -7,7 +7,8 @@ export const springDataJpaSlides = [
       "Auto-generates repository implementations",
       "🔥 Part of Spring Data family"
     ],
-    note: "🧠 Spring Data JPA = JPA + Spring magic + less code"
+    note: "🧠 Spring Data JPA = JPA + Spring magic + less code",
+    keepInMind: "Spring Data JPA is all about making data access easier and more efficient for developers."
   },
   {
     title: "Repository Hierarchy",
@@ -19,7 +20,8 @@ export const springDataJpaSlides = [
       "PagingAndSortingRepository | + Pagination | findAll with Pageable",
       "JpaRepository | + JPA specific | flush, saveAndFlush",
       "```"
-    ]
+    ],
+    keepInMind: "For most applications, extending `JpaRepository` is the best choice."
   },
   {
     title: "Basic Repository",
@@ -36,7 +38,8 @@ export const springDataJpaSlides = [
       "• `findById(id)`, `findAll()`",
       "• `deleteById(id)`, `delete(entity)`",
       "• `count()`, `existsById(id)`"
-    ]
+    ],
+    keepInMind: "This is the magic of Spring Data JPA: a fully implemented DAO layer with zero implementation code."
   },
   {
     title: "Derived Query Methods",
@@ -59,7 +62,8 @@ export const springDataJpaSlides = [
       "    boolean existsByEmail(String email);",
       "}",
       "```"
-    ]
+    ],
+    keepInMind: "Spring Data JPA parses the method name and creates the corresponding query for you."
   },
   {
     title: "Query Keywords",
@@ -74,7 +78,8 @@ export const springDataJpaSlides = [
       "Like | findByNameLike | WHERE name LIKE ?",
       "In | findByAgeIn | WHERE age IN (?)",
       "```"
-    ]
+    ],
+    keepInMind: "There is a rich set of keywords available for creating derived queries."
   },
   {
     title: "Custom Queries with @Query",
@@ -95,7 +100,8 @@ export const springDataJpaSlides = [
       "    List<User> findActiveUsersNative();",
       "}",
       "```"
-    ]
+    ],
+    keepInMind: "When derived queries aren't enough, `@Query` gives you full control over the query."
   },
   {
     title: "Pagination and Sorting",
@@ -116,7 +122,8 @@ export const springDataJpaSlides = [
       "    }",
       "}",
       "```"
-    ]
+    ],
+    keepInMind: "Pagination is essential for performance when dealing with large datasets."
   },
   {
     title: "Modifying Queries",
@@ -134,7 +141,8 @@ export const springDataJpaSlides = [
       "}",
       "```",
       "🔥 @Modifying required for UPDATE/DELETE queries"
-    ]
+    ],
+    keepInMind: "`@Modifying` queries are executed directly against the database and bypass the persistence context."
   },
   {
     title: "Specifications (Criteria API)",
@@ -147,17 +155,18 @@ export const springDataJpaSlides = [
       "// Dynamic queries",
       "public class UserSpecifications {",
       "    public static Specification<User> hasUsername(String username) {",
-      "        return (root, query, cb) -> ",
+      "        return (root, query, cb) => ",
       "            cb.equal(root.get(\"username\"), username);",
       "    }",
       "    ",
       "    public static Specification<User> isActive() {",
-      "        return (root, query, cb) -> ",
+      "        return (root, query, cb) => ",
       "            cb.isTrue(root.get(\"active\"));",
       "    }",
       "}",
       "```"
-    ]
+    ],
+    keepInMind: "Specifications are the most powerful way to build dynamic, type-safe queries."
   },
   {
     title: "Best Practices",
@@ -171,6 +180,7 @@ export const springDataJpaSlides = [
       "❌ Don't ignore N+1 query problems",
       "❌ Don't fetch unnecessary data"
     ],
-    note: "🧠 Interview tip: Spring Data JPA reduces boilerplate but understand underlying JPA"
+    note: "🧠 Interview tip: Spring Data JPA reduces boilerplate but understand underlying JPA",
+    keepInMind: "The key is to choose the right tool for the job: derived queries, `@Query`, or Specifications."
   }
-];
+]

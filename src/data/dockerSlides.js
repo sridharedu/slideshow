@@ -7,7 +7,8 @@ export const dockerSlides = [
       "Runs consistently across different environments",
       "🔥 Solves 'it works on my machine' problem"
     ],
-    note: "🧠 Docker = Application + Runtime + Dependencies in one package"
+    note: "🧠 Docker = Application + Runtime + Dependencies in one package",
+    keepInMind: "Docker provides a consistent environment from development to production, reducing deployment friction."
   },
   {
     title: "Dockerfile Basics",
@@ -21,7 +22,8 @@ export const dockerSlides = [
       "CMD [\"java\", \"-jar\", \"/app.jar\"]",
       "```",
       "🔥 Instructions are cached for faster builds"
-    ]
+    ],
+    keepInMind: "A Dockerfile is the recipe for your application's containerized environment."
   },
   {
     title: "Common Dockerfile Instructions",
@@ -34,7 +36,8 @@ export const dockerSlides = [
       "EXPOSE | Document ports | EXPOSE 8080",
       "CMD | Default command | CMD [\"java\", \"-jar\", \"app.jar\"]",
       "```"
-    ]
+    ],
+    keepInMind: "Understanding the purpose of each instruction is key to writing efficient Dockerfiles."
   },
   {
     title: "Spring Boot Dockerfile",
@@ -54,7 +57,8 @@ export const dockerSlides = [
       "# Run application",
       "CMD [\"java\", \"-jar\", \"app.jar\"]",
       "```"
-    ]
+    ],
+    keepInMind: "This simple Dockerfile is all you need to containerize a basic Spring Boot application."
   },
   {
     title: "Multi-stage Build",
@@ -74,7 +78,8 @@ export const dockerSlides = [
       "CMD [\"java\", \"-jar\", \"/app.jar\"]",
       "```",
       "🔥 Smaller final image size"
-    ]
+    ],
+    keepInMind: "Multi-stage builds are a best practice for creating lean, production-ready Docker images."
   },
   {
     title: "Building Docker Image",
@@ -90,7 +95,8 @@ export const dockerSlides = [
       "docker run -p 8080:8080 myapp:1.0",
       "```",
       "🔥 Use specific tags instead of 'latest'"
-    ]
+    ],
+    keepInMind: "Tagging images with versions is crucial for managing and rolling back deployments."
   },
   {
     title: "Environment Variables",
@@ -109,7 +115,8 @@ export const dockerSlides = [
       "```bash",
       "docker run -e SPRING_PROFILES_ACTIVE=dev myapp:1.0",
       "```"
-    ]
+    ],
+    keepInMind: "Environment variables are the standard way to configure your application inside a container."
   },
   {
     title: "Docker Compose",
@@ -131,7 +138,8 @@ export const dockerSlides = [
       "    environment:",
       "      POSTGRES_DB: myapp",
       "```"
-    ]
+    ],
+    keepInMind: "Docker Compose is essential for local development and testing of multi-service applications."
   },
   {
     title: "Optimization Tips",
@@ -147,7 +155,8 @@ export const dockerSlides = [
       "COPY src ./src",
       "RUN mvn package",
       "```"
-    ]
+    ],
+    keepInMind: "Optimizing your Dockerfile can significantly speed up your build and deployment pipeline."
   },
   {
     title: "Best Practices",
@@ -160,6 +169,7 @@ export const dockerSlides = [
       "❌ Don't use 'latest' tag in production",
       "❌ Don't install unnecessary packages"
     ],
-    note: "🧠 Interview tip: Docker enables consistent deployments and microservices"
+    note: "🧠 Interview tip: Docker enables consistent deployments and microservices",
+    keepInMind: "Security and efficiency are the two main pillars of Docker best practices."
   }
 ];

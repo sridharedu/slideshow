@@ -7,7 +7,8 @@ export const javaMemorySlides = [
       "Understanding memory = better performance + debugging",
       "🔥 Critical for production applications"
     ],
-    note: "🧠 Memory management is automatic but understanding helps optimization"
+    note: "🧠 Memory management is automatic but understanding helps optimization",
+    keepInMind: "While the JVM manages memory automatically, a good developer knows what's happening under the hood."
   },
   {
     title: "Memory Areas Overview",
@@ -20,7 +21,8 @@ export const javaMemorySlides = [
       "PC Register | Current instruction | No | No",
       "Native Stack | Native method calls | No | No",
       "```"
-    ]
+    ],
+    keepInMind: "The distinction between heap (shared) and stack (thread-local) is the most important concept to grasp."
   },
   {
     title: "Heap Memory",
@@ -31,7 +33,8 @@ export const javaMemorySlides = [
       "• Young Generation (Eden + Survivor spaces)",
       "• Old Generation (Tenured space)",
       "🔥 Most GC activity happens here"
-    ]
+    ],
+    keepInMind: "All `new` objects are allocated on the heap."
   },
   {
     title: "Heap Generations",
@@ -43,7 +46,8 @@ export const javaMemorySlides = [
       "Old/Tenured | Long-lived objects | Less frequent",
       "Metaspace | Class metadata (Java 8+) | Rare",
       "```"
-    ]
+    ],
+    keepInMind: "The generational hypothesis states that most objects die young, which is why the heap is structured this way."
   },
   {
     title: "Stack Memory",
@@ -59,7 +63,8 @@ export const javaMemorySlides = [
       "}",
       "```",
       "🔥 StackOverflowError when stack is full"
-    ]
+    ],
+    keepInMind: "Primitive types and object references live on the stack; the objects themselves live on the heap."
   },
   {
     title: "Method Area/Metaspace",
@@ -72,7 +77,8 @@ export const javaMemorySlides = [
       "Java 8+: Metaspace (native memory)",
       "Java 7-: PermGen (heap memory)",
       "🔥 OutOfMemoryError: Metaspace when full"
-    ]
+    ],
+    keepInMind: "The move from PermGen to Metaspace in Java 8 was a significant change to reduce `OutOfMemoryError` issues."
   },
   {
     title: "Memory Allocation Example",
@@ -88,7 +94,8 @@ export const javaMemorySlides = [
       "    }",
       "}",
       "```"
-    ]
+    ],
+    keepInMind: "Tracing where different variables and objects are stored is a common interview question."
   },
   {
     title: "Garbage Collection",
@@ -100,7 +107,8 @@ export const javaMemorySlides = [
       "• Major GC (Old generation)",
       "• Full GC (Entire heap)",
       "🔥 GC pauses can affect application performance"
-    ]
+    ],
+    keepInMind: "The goal of GC is to reclaim memory, but it comes at the cost of application pauses."
   },
   {
     title: "Memory Tuning Parameters",
@@ -118,7 +126,8 @@ export const javaMemorySlides = [
       "# GC logging",
       "-XX:+PrintGC -XX:+PrintGCDetails",
       "```"
-    ]
+    ],
+    keepInMind: "JVM tuning is a complex but essential skill for high-performance applications."
   },
   {
     title: "Memory Issues & Solutions",
@@ -134,6 +143,7 @@ export const javaMemorySlides = [
       "",
       "🔥 Use profilers like JVisualVM, JProfiler"
     ],
-    note: "🧠 Interview tip: Explain heap vs stack, GC types, and common memory issues"
+    note: "🧠 Interview tip: Explain heap vs stack, GC types, and common memory issues",
+    keepInMind: "Memory leaks are a common problem in Java, often caused by long-lived objects holding references to short-lived ones."
   }
-];
+]

@@ -7,7 +7,8 @@ export const actuatorSlides = [
       "HTTP and JMX endpoint exposure",
       "🔥 Essential for production Spring Boot apps"
     ],
-    note: "🧠 Actuator = application observability + operational endpoints"
+    note: "🧠 Actuator = application observability + operational endpoints",
+    keepInMind: "Actuator is the pulse of a Spring Boot application, offering a window into its runtime health and state."
   },
   {
     title: "Adding Actuator Dependency",
@@ -23,7 +24,8 @@ export const actuatorSlides = [
       "```gradle",
       "implementation 'org.springframework.boot:spring-boot-starter-actuator'",
       "```"
-    ]
+    ],
+    keepInMind: "Adding the starter is the only step needed to enable basic monitoring capabilities."
   },
   {
     title: "Key Actuator Endpoints",
@@ -36,7 +38,8 @@ export const actuatorSlides = [
       "/env | Environment properties | /actuator/env",
       "/loggers | Logging configuration | /actuator/loggers",
       "```"
-    ]
+    ],
+    keepInMind: "While many endpoints exist, 'health', 'metrics', and 'info' are the most commonly used in production environments."
   },
   {
     title: "Health Endpoint",
@@ -53,7 +56,8 @@ export const actuatorSlides = [
       "}",
       "```",
       "🔥 Used by load balancers for health checks"
-    ]
+    ],
+    keepInMind: "The health endpoint is crucial for automated systems like Kubernetes or load balancers to manage application lifecycle."
   },
   {
     title: "Enabling Endpoints",
@@ -68,7 +72,8 @@ export const actuatorSlides = [
       "        include: health,info,metrics,env",
       "```",
       "Or expose all: `include: \"*\"`"
-    ]
+    ],
+    keepInMind: "Security is paramount; never expose all endpoints, especially in a production environment."
   },
   {
     title: "Custom Health Indicators",
@@ -90,7 +95,8 @@ export const actuatorSlides = [
       "    }",
       "}",
       "```"
-    ]
+    ],
+    keepInMind: "Custom health indicators allow you to extend Actuator's monitoring to your application's specific dependencies."
   },
   {
     title: "Info Endpoint Configuration",
@@ -107,7 +113,8 @@ export const actuatorSlides = [
       "    version: ${project.version}",
       "```",
       "Access via `/actuator/info`"
-    ]
+    ],
+    keepInMind: "The info endpoint is a simple way to version and identify your application without looking at logs."
   },
   {
     title: "Metrics Endpoint",
@@ -120,7 +127,8 @@ export const actuatorSlides = [
       "• `system.cpu.usage` - CPU usage",
       "• `jdbc.connections.active` - DB connections",
       "🔥 Integrate with Prometheus/Grafana"
-    ]
+    ],
+    keepInMind: "Actuator provides the raw data; for visualization and alerting, you'll need to integrate with tools like Prometheus and Grafana."
   },
   {
     title: "Security Configuration",
@@ -139,7 +147,8 @@ export const actuatorSlides = [
       "```java",
       ".requestMatchers(\"/manage/**\").hasRole(\"ADMIN\")",
       "```"
-    ]
+    ],
+    keepInMind: "Securing Actuator endpoints is not optional; it's a critical step to prevent exposing sensitive application data."
   },
   {
     title: "Production Best Practices",
@@ -151,6 +160,7 @@ export const actuatorSlides = [
       "❌ Don't expose all endpoints in production",
       "❌ Don't expose sensitive info without security"
     ],
-    note: "🧠 Interview tip: Actuator enables DevOps practices and monitoring"
+    note: "🧠 Interview tip: Actuator enables DevOps practices and monitoring",
+    keepInMind: "Treat Actuator endpoints as you would any other sensitive API; they are a gateway to your application's internals."
   }
 ];

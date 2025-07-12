@@ -7,7 +7,8 @@ export const spyBeansSlides = [
       "Partial mocking → spy real object, mock specific methods",
       "🔥 Real bean behavior + selective stubbing"
     ],
-    note: "🧠 @SpyBean = real bean + ability to mock specific methods"
+    note: "🧠 @SpyBean = real bean + ability to mock specific methods",
+    keepInMind: "`@SpyBean` allows you to test the integration of a bean with its collaborators while still controlling specific interactions."
   },
   {
     title: "@SpyBean vs @MockBean",
@@ -19,7 +20,8 @@ export const spyBeansSlides = [
       "Use case | Full isolation | Partial mocking",
       "Performance | Faster | Slower (real calls)",
       "```"
-    ]
+    ],
+    keepInMind: "Choose `@MockBean` for isolation and `@SpyBean` for integration with partial control."
   },
   {
     title: "When to Use @SpyBean",
@@ -29,7 +31,8 @@ export const spyBeansSlides = [
       "✅ Testing integration with partial mocking",
       "❌ Don't use for full isolation testing",
       "❌ Avoid if performance is critical"
-    ]
+    ],
+    keepInMind: "`@SpyBean` is a powerful tool, but it's often a sign that your test has a large scope."
   },
   {
     title: "Basic @SpyBean Example",
@@ -50,7 +53,8 @@ export const spyBeansSlides = [
       "    }",
       "}",
       "```"
-    ]
+    ],
+    keepInMind: "This test uses the real `UserService` but prevents the `EmailService` from sending actual emails."
   },
   {
     title: "Stubbing Spy Methods",
@@ -64,7 +68,8 @@ export const spyBeansSlides = [
       "doThrow(new RuntimeException()).when(spyService).riskyMethod();",
       "```",
       "🔥 Use doXxx() syntax to avoid calling real method"
-    ]
+    ],
+    keepInMind: "The `do...when` syntax is crucial for stubbing spies to avoid calling the real method."
   },
   {
     title: "Verifying Spy Interactions",
@@ -80,7 +85,8 @@ export const spyBeansSlides = [
       "    verify(emailService, times(1)).logEmailSent();",
       "}",
       "```"
-    ]
+    ],
+    keepInMind: "You can verify both stubbed and real method calls on a spy."
   },
   {
     title: "Real vs Stubbed Behavior",
@@ -99,7 +105,8 @@ export const spyBeansSlides = [
       "    boolean exists = userRepo.existsByEmail(\"test@test.com\"); // Returns false",
       "}",
       "```"
-    ]
+    ],
+    keepInMind: "This demonstrates the power of `@SpyBean`: mixing real and stubbed behavior in the same test."
   },
   {
     title: "Common Pitfalls",
@@ -109,7 +116,8 @@ export const spyBeansSlides = [
       "❌ Spying on final classes/methods → won't work",
       "❌ Over-spying → makes tests complex and slow"
     ],
-    note: "🧠 Always use doXxx() syntax with spies to avoid unwanted real calls"
+    note: "🧠 Always use doXxx() syntax with spies to avoid unwanted real calls",
+    keepInMind: "The `when(...).thenReturn(...)` syntax can lead to unexpected side effects with spies."
   },
   {
     title: "Integration Test Example",
@@ -133,7 +141,8 @@ export const spyBeansSlides = [
       "    }",
       "}",
       "```"
-    ]
+    ],
+    keepInMind: "This is a classic use case for `@SpyBean`: testing a complex workflow while mocking out a single external dependency."
   },
   {
     title: "Best Practices",
@@ -144,6 +153,7 @@ export const spyBeansSlides = [
       "✅ Reset spies between tests if needed",
       "❌ Don't spy everything → defeats purpose of unit testing"
     ],
-    note: "🧠 Interview tip: @SpyBean is for integration tests with selective mocking"
+    note: "🧠 Interview tip: @SpyBean is for integration tests with selective mocking",
+    keepInMind: "If you find yourself using `@SpyBean` frequently, it might be a sign that your classes are too tightly coupled."
   }
 ];
