@@ -21,6 +21,75 @@ const SlideViewer = ({ slides }) => {
     const isCode = (line) => line.trim().startsWith("```");
     const isTable = (line) => line.trim().startsWith("```table");
     
+    const highlightSyntax = (line) => {
+        if (line.trim().startsWith('#')) return line;
+        
+        const tokens = [];
+        let remaining = line;
+        let key = 0;
+        
+        while (remaining) {
+            // Check for strings first
+            const stringMatch = remaining.match(/^(.*?)("[^"]*"|'[^']*')/);
+            if (stringMatch && stringMatch[1] !== remaining) {
+                if (stringMatch[1]) tokens.push(stringMatch[1]);
+                tokens.push(<span key={key++} style={{color: '#16a34a'}}>{stringMatch[2]}</span>);
+                remaining = remaining.slice(stringMatch[0].length);
+                continue;
+            }
+            
+            // Check for comments
+            const commentMatch = remaining.match(/^(.*?)(\/\/.*)$/);
+            if (commentMatch && commentMatch[1] !== remaining) {
+                if (commentMatch[1]) tokens.push(commentMatch[1]);
+                tokens.push(<span key={key++} style={{color: '#6b7280'}}>{commentMatch[2]}</span>);
+                break;
+            }
+            
+            // Check for annotations
+            const annotationMatch = remaining.match(/^(.*?)(@[A-Za-z][A-Za-z0-9]*)/);
+            if (annotationMatch && annotationMatch[1] !== remaining) {
+                if (annotationMatch[1]) tokens.push(annotationMatch[1]);
+                tokens.push(<span key={key++} style={{color: '#ea580c'}}>{annotationMatch[2]}</span>);
+                remaining = remaining.slice(annotationMatch[0].length);
+                continue;
+            }
+            
+            // Check for method calls
+            const methodMatch = remaining.match(/^(.*?)(\.[a-zA-Z][a-zA-Z0-9]*\()/);
+            if (methodMatch && methodMatch[1] !== remaining) {
+                if (methodMatch[1]) tokens.push(methodMatch[1]);
+                tokens.push(<span key={key++} style={{color: '#dc2626'}}>{methodMatch[2]}</span>);
+                remaining = remaining.slice(methodMatch[0].length);
+                continue;
+            }
+            
+            // Check for keywords
+            const keywordMatch = remaining.match(/^(.*?)\b(public|private|protected|static|final|class|interface|extends|implements|import|package|return|if|else|for|while|try|catch|finally|new|this|super|void|int|String|boolean|double|float|long|short|byte|char)\b/);
+            if (keywordMatch && keywordMatch[1] !== remaining) {
+                if (keywordMatch[1]) tokens.push(keywordMatch[1]);
+                tokens.push(<span key={key++} style={{color: '#7c3aed'}}>{keywordMatch[2]}</span>);
+                remaining = remaining.slice(keywordMatch[0].length);
+                continue;
+            }
+            
+            // Check for class names
+            const classMatch = remaining.match(/^(.*?)\b([A-Z][a-zA-Z0-9]*)\b/);
+            if (classMatch && classMatch[1] !== remaining) {
+                if (classMatch[1]) tokens.push(classMatch[1]);
+                tokens.push(<span key={key++} style={{color: '#059669'}}>{classMatch[2]}</span>);
+                remaining = remaining.slice(classMatch[0].length);
+                continue;
+            }
+            
+            // No matches, add remaining text
+            tokens.push(remaining);
+            break;
+        }
+        
+        return tokens;
+    };
+    
     const parseTextFormatting = (text) => {
         if (text.trim().startsWith('#')) {
             return (
@@ -147,7 +216,7 @@ const SlideViewer = ({ slides }) => {
                                     <div key={idx} style={{
                                         color: line.trim().startsWith('#') ? '#6b7280' : 'inherit'
                                     }}>
-                                        {line}
+                                        {highlightSyntax(line)}
                                     </div>
                                 ))}
                             </code>
