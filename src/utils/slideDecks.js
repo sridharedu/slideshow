@@ -123,5 +123,10 @@ export const slideDecks = {
         title: 'Prometheus Monitoring',
         description: 'Time-series monitoring and alerting toolkit',
         dataFile: 'prometheusSlides'
+    },
+    grafanaSlides: {
+        title: 'Grafana Dashboards',
+        description: 'Data visualization and monitoring dashboards',
+        dataFile: 'grafanaSlides'
     }
 };

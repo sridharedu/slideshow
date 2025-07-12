@@ -158,6 +158,11 @@ export const categorizedSlideDecks = {
         key: 'prometheusSlides',
         title: 'Prometheus Monitoring',
         description: 'Time-series monitoring and alerting toolkit'
+      },
+      {
+        key: 'grafanaSlides',
+        title: 'Grafana Dashboards',
+        description: 'Data visualization and monitoring dashboards'
       }
     ]
   },
