@@ -4,10 +4,10 @@ export const slideDecks = {
         description: 'Async programming with CompletableFuture',
         dataFile: 'completableFutureSlides'
     },
-    objectsInJavaSlides: {
-        title: 'Objects in Java',
-        description: 'Object creation and lifecycle',
-        dataFile: 'objectsInJavaSlides'
+    coreJavaFundamentalsSlides: {
+        title: 'Core Java Fundamentals',
+        description: 'Objects, lifecycle, hashCode/equals contract, aggregation vs composition',
+        dataFile: 'coreJavaFundamentalsSlides'
     },
     webClientSlides: {
         title: 'WebClient in Spring',
@@ -19,16 +19,7 @@ export const slideDecks = {
         description: 'Null-safe programming with Optional',
         dataFile: 'optionalSlides'
     },
-    hashCodeSlides: {
-        title: 'hashCode() in Java',
-        description: 'Understanding hashCode and equals contract',
-        dataFile: 'hashCodeSlides'
-    },
-    aggregationCompositionSlides: {
-        title: 'Aggregation vs Composition',
-        description: 'Object relationships and lifecycle management',
-        dataFile: 'aggregationCompositionSlides'
-    },
+
     spyBeansSlides: {
         title: '@SpyBean in Spring Boot',
         description: 'Partial mocking with Spring Boot Test',
@@ -55,8 +46,8 @@ export const slideDecks = {
         dataFile: 'dockerSlides'
     },
     javaMemorySlides: {
-        title: 'Java Memory Management',
-        description: 'JVM memory areas and garbage collection',
+        title: 'Java Memory & Performance',
+        description: 'JVM memory areas, garbage collection, performance tuning',
         dataFile: 'javaMemorySlides'
     },
     jwtSlides: {
@@ -71,23 +62,8 @@ export const slideDecks = {
     },
     jpaSlides: {
         title: 'Java Persistence API (JPA)',
-        description: 'Object-Relational Mapping with JPA',
+        description: 'Object-relational mapping, entities, annotations, entity relationships, EntityManager, Spring Data JPA, repository patterns, query methods',
         dataFile: 'jpaSlides'
-    },
-    entityRelationshipsSlides: {
-        title: 'JPA Entity Relationships',
-        description: 'Mapping database relationships in JPA',
-        dataFile: 'entityRelationshipsSlides'
-    },
-    entityManagerSlides: {
-        title: 'JPA EntityManager',
-        description: 'Core JPA interface for database operations',
-        dataFile: 'entityManagerSlides'
-    },
-    springDataJpaSlides: {
-        title: 'Spring Data JPA',
-        description: 'High-level data access with Spring Data',
-        dataFile: 'springDataJpaSlides'
     },
     pomFileSlides: {
         title: 'Maven POM File',
@@ -99,20 +75,10 @@ export const slideDecks = {
         description: 'Microservice request tracing and debugging',
         dataFile: 'zipkinSlides'
     },
-    javaJ2EESlides: {
-        title: 'Java J2EE Enterprise',
-        description: 'Enterprise Java platform and technologies',
-        dataFile: 'javaJ2EESlides'
-    },
-    j2eeVsSpringSlides: {
-        title: 'J2EE vs Spring Framework',
-        description: 'Comparison of enterprise Java approaches',
-        dataFile: 'j2eeVsSpringSlides'
-    },
-    javaTimelineSlides: {
-        title: 'Java Evolution Timeline',
-        description: 'Java versions from 1.0 to 21 with key features',
-        dataFile: 'javaTimelineSlides'
+    javaEnterpriseEvolutionSlides: {
+        title: 'Java Enterprise Evolution',
+        description: 'Java timeline, J2EE platform, Spring framework comparison',
+        dataFile: 'javaEnterpriseEvolutionSlides'
     },
     gitSlides: {
         title: 'Git Version Control',
@@ -128,5 +94,35 @@ export const slideDecks = {
         title: 'Grafana Dashboards',
         description: 'Data visualization and monitoring dashboards',
         dataFile: 'grafanaSlides'
+    },
+    springJpaSlides: {
+        title: 'Transaction Management and Caching',
+        description: 'ACID properties, cascading operations, lazy loading, caching strategies, N+1 solutions, distributed transactions, isolation levels, locking strategies',
+        dataFile: 'springJpaSlides'
+    },
+    iocContainerSlides: {
+        title: 'Spring IoC Container',
+        description: 'Inversion of Control, dependency injection, bean lifecycle',
+        dataFile: 'iocContainerSlides'
+    },
+    beanSlides: {
+        title: 'Spring Beans',
+        description: 'Bean definition, autowiring, scopes, lifecycle methods',
+        dataFile: 'beanSlides'
+    },
+    serviceDiscoverySlides: {
+        title: 'Service Discovery',
+        description: 'Microservice discovery patterns, Eureka, Kubernetes DNS, Feign clients',
+        dataFile: 'serviceDiscoverySlides'
+    },
+    apiGatewaySlides: {
+        title: 'API Gateway',
+        description: 'Spring Cloud Gateway, routing, filters, authentication, rate limiting',
+        dataFile: 'apiGatewaySlides'
+    },
+    configurationManagementSlides: {
+        title: 'Configuration Management',
+        description: 'Spring Cloud Config, externalized configuration, encryption, profiles',
+        dataFile: 'configurationManagementSlides'
     }
 };

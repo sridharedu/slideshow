@@ -262,9 +262,9 @@ const SlideViewer = ({ slides }) => {
             } else {
                 output.push(
                     <div key={`text-${i}`} style={{
-                        fontSize: "1rem",
-                        marginBottom: "0.75rem",
-                        lineHeight: "1.65",
+                        fontSize: "1.125rem",
+                        marginBottom: "1rem",
+                        lineHeight: "1.7",
                         color: "#374151",
                         paddingLeft: "1.25rem"
                     }}>
@@ -294,12 +294,12 @@ const SlideViewer = ({ slides }) => {
         >
             <div
                 style={{
-                    maxWidth: "1200px",
+                    maxWidth: "1050px",
                     width: "100%",
                     background: "#fff",
                     borderRadius: "16px",
                     boxShadow: "0 10px 30px rgba(0,0,0,0.1)",
-                    padding: "2.5rem 3rem",
+                    padding: "3rem 4rem",
                     position: "relative"
                 }}
             >
@@ -318,9 +318,9 @@ const SlideViewer = ({ slides }) => {
                 </div>
                 <h2
                     style={{
-                        fontSize: "1.75rem",
+                        fontSize: "2.25rem",
                         fontWeight: "700",
-                        marginBottom: "1.5rem",
+                        marginBottom: "2rem",
                         color: "#1f2937"
                     }}
                 >

@@ -4,39 +4,19 @@ export const categorizedSlideDecks = {
     description: "Core Java fundamentals, Collections, Multithreading, OOP concepts",
     slides: [
       {
-        key: 'objectsInJavaSlides',
-        title: 'Objects in Java',
-        description: 'Object creation and lifecycle'
-      },
-      {
-        key: 'hashCodeSlides',
-        title: 'hashCode() in Java',
-        description: 'Understanding hashCode and equals contract'
-      },
-      {
-        key: 'aggregationCompositionSlides',
-        title: 'Aggregation vs Composition',
-        description: 'Object relationships and lifecycle management'
+        key: 'coreJavaFundamentalsSlides',
+        title: 'Core Java Fundamentals',
+        description: 'Objects, lifecycle, hashCode/equals contract, aggregation vs composition'
       },
       {
         key: 'javaMemorySlides',
-        title: 'Java Memory Management',
-        description: 'JVM memory areas and garbage collection'
+        title: 'Java Memory & Performance',
+        description: 'JVM memory areas, garbage collection, performance tuning'
       },
       {
-        key: 'javaTimelineSlides',
-        title: 'Java Evolution Timeline',
-        description: 'Java versions from 1.0 to 21 with key features'
-      },
-      {
-        key: 'javaJ2EESlides',
-        title: 'Java J2EE Enterprise',
-        description: 'Enterprise Java platform and technologies'
-      },
-      {
-        key: 'j2eeVsSpringSlides',
-        title: 'J2EE vs Spring Framework',
-        description: 'Comparison of enterprise Java approaches'
+        key: 'javaEnterpriseEvolutionSlides',
+        title: 'Java Enterprise Evolution',
+        description: 'Java timeline, J2EE platform, Spring framework comparison'
       }
     ]
   },
@@ -68,6 +48,16 @@ export const categorizedSlideDecks = {
         key: 'ldapSecuritySlides',
         title: 'Spring Security with LDAP',
         description: 'Enterprise authentication using LDAP'
+      },
+      {
+        key: 'iocContainerSlides',
+        title: 'Spring IoC Container',
+        description: 'Inversion of Control, dependency injection, bean lifecycle'
+      },
+      {
+        key: 'beanSlides',
+        title: 'Spring Beans',
+        description: 'Bean definition, autowiring, scopes, lifecycle methods'
       }
     ]
   },
@@ -79,6 +69,21 @@ export const categorizedSlideDecks = {
         key: 'swaggerSlides',
         title: 'Swagger API Documentation',
         description: 'Interactive API docs with OpenAPI'
+      },
+      {
+        key: 'serviceDiscoverySlides',
+        title: 'Service Discovery',
+        description: 'Microservice discovery patterns, Eureka, Kubernetes DNS, Feign clients'
+      },
+      {
+        key: 'apiGatewaySlides',
+        title: 'API Gateway',
+        description: 'Spring Cloud Gateway, routing, filters, authentication, rate limiting'
+      },
+      {
+        key: 'configurationManagementSlides',
+        title: 'Configuration Management',
+        description: 'Spring Cloud Config, externalized configuration, encryption, profiles'
       }
     ]
   },
@@ -94,22 +99,12 @@ export const categorizedSlideDecks = {
       {
         key: 'jpaSlides',
         title: 'Java Persistence API (JPA)',
-        description: 'Object-Relational Mapping with JPA'
+        description: 'Object-relational mapping, entities, annotations, entity relationships, EntityManager, Spring Data JPA, repository patterns, query methods'
       },
       {
-        key: 'entityRelationshipsSlides',
-        title: 'JPA Entity Relationships',
-        description: 'Mapping database relationships in JPA'
-      },
-      {
-        key: 'entityManagerSlides',
-        title: 'JPA EntityManager',
-        description: 'Core JPA interface for database operations'
-      },
-      {
-        key: 'springDataJpaSlides',
-        title: 'Spring Data JPA',
-        description: 'High-level data access with Spring Data'
+        key: 'springJpaSlides',
+        title: 'Transaction Management and Caching',
+        description: 'ACID properties, cascading operations, lazy loading, caching strategies, N+1 solutions, distributed transactions, isolation levels, locking strategies'
       }
     ]
   },

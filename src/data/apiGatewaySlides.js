@@ -1,0 +1,341 @@
+export const apiGatewaySlides = [
+  {
+    title: "What is an API Gateway?",
+    points: [
+      "✔️ Single entry point for all client requests to microservices",
+      "Routes requests to appropriate backend services",
+      "Handles cross-cutting concerns (auth, logging, rate limiting)",
+      "🔥 Essential pattern for microservices architecture"
+    ],
+    note: "🧠 API Gateway = Front door + Traffic cop for microservices",
+    keepInMind: "API Gateway centralizes common functionality that would otherwise be duplicated across services."
+  },
+  {
+    title: "Why Use API Gateway?",
+    points: [
+      "**Problems without API Gateway:**",
+      "• Clients need to know multiple service endpoints",
+      "• Cross-cutting concerns duplicated in each service",
+      "• Complex client-side load balancing",
+      "• Security scattered across services",
+      "",
+      "**Benefits:**",
+      "• Single entry point for clients",
+      "• Centralized authentication and authorization",
+      "• Request/response transformation",
+      "• Rate limiting and throttling",
+      "• Monitoring and analytics"
+    ],
+    keepInMind: "API Gateway simplifies client interactions while providing centralized control over API access."
+  },
+  {
+    title: "API Gateway Responsibilities",
+    points: [
+      "```table",
+      "Responsibility | Description | Example",
+      "Routing | Forward requests to services | /api/users/* → user-service",
+      "Authentication | Verify client identity | JWT token validation",
+      "Authorization | Check permissions | Role-based access control",
+      "Rate Limiting | Control request frequency | 100 requests/minute per user",
+      "Load Balancing | Distribute requests | Round-robin, weighted",
+      "Transformation | Modify requests/responses | Add headers, format conversion",
+      "Monitoring | Track API usage | Metrics, logging, tracing",
+      "```"
+    ],
+    keepInMind: "This table breaks down the key jobs of an API Gateway. It acts as a traffic manager (Routing), a security guard (Authentication, Authorization), a resource protector (Rate Limiting), and a data processor (Transformation), all while keeping an eye on performance (Monitoring). It handles both functional routing and non-functional cross-cutting concerns."
+  },
+  {
+    title: "Spring Cloud Gateway Overview",
+    points: [
+      "✔️ Modern, reactive API gateway built on Spring WebFlux",
+      "Replaces Netflix Zuul in Spring Cloud ecosystem",
+      "Non-blocking, high-performance architecture",
+      "Built-in integration with Spring Cloud ecosystem",
+      "Supports predicates, filters, and route configuration",
+      "🔥 Preferred choice for new Spring Boot microservices"
+    ],
+    keepInMind: "Spring Cloud Gateway is built on reactive principles for better performance and scalability."
+  },
+  {
+    title: "Spring Cloud Gateway Setup",
+    points: [
+      "**Dependencies:**",
+      "```xml",
+      "<!-- Main dependency for Spring Cloud Gateway -->",
+      "<dependency>",
+      "    <groupId>org.springframework.cloud</groupId>",
+      "    <artifactId>spring-cloud-starter-gateway</artifactId>",
+      "</dependency>",
+      "<!-- Dependency for service discovery with Eureka -->",
+      "<dependency>",
+      "    <groupId>org.springframework.cloud</groupId>",
+      "    <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>",
+      "</dependency>",
+      "```",
+      "**Main Class:**",
+      "```java",
+      "@SpringBootApplication",
+      "public class ApiGatewayApplication {",
+      "    public static void main(String[] args) {",
+      "        SpringApplication.run(ApiGatewayApplication.class, args);",
+      "    }",
+      "}",
+      "```"
+    ],
+    keepInMind: "Setting up is simple. You add the `spring-cloud-starter-gateway` dependency. The Eureka client dependency is included so the gateway can find other services. No special annotations are needed, as Spring Boot auto-configures the gateway based on the dependencies present."
+  },
+  {
+    title: "Route Configuration (YAML)",
+    points: [
+      "```yaml",
+      "spring:",
+      "  cloud:",
+      "    gateway:",
+      "      routes:",
+      "      - id: user-service",
+      "        uri: lb://user-service",
+      "        predicates:",
+      "        - Path=/api/users/**",
+      "        filters:",
+      "        - StripPrefix=2",
+      "        - AddRequestHeader=X-Request-Source, gateway",
+      "      - id: order-service",
+      "        uri: lb://order-service",
+      "        predicates:",
+      "        - Path=/api/orders/**",
+      "        filters:",
+      "        - StripPrefix=2",
+      "```",
+      "🔥 lb:// prefix enables load balancing via service discovery"
+    ],
+    keepInMind: "Routes are defined in YAML. `predicates` are conditions to match incoming requests (e.g., by path). `filters` modify the request before it's sent to the downstream service. For example, `StripPrefix=2` removes `/api/users` from the path. The `lb://` scheme is crucial as it tells the gateway to use a service discovery client (like Eureka) to find the actual location of `user-service`."
+  },
+  {
+    title: "Route Configuration (Java)",
+    points: [
+      "```java",
+      "@Configuration",
+      "public class GatewayConfig {",
+      "    ",
+      "    @Bean",
+      "    public RouteLocator customRouteLocator(RouteLocatorBuilder builder) {",
+      "        return builder.routes()",
+      "            .route(\"user-service\", r -> r",
+      "                .path(\"/api/users/**\")",
+      "                .filters(f -> f",
+      "                    .stripPrefix(2)",
+      "                    .addRequestHeader(\"X-Request-Source\", \"gateway\"))",
+      "                .uri(\"lb://user-service\"))",
+      "            .route(\"order-service\", r -> r",
+      "                .path(\"/api/orders/**\")",
+      "                .filters(f -> f.stripPrefix(2))",
+      "                .uri(\"lb://order-service\"))",
+      "            .build();",
+      "    }",
+      "}",
+      "```"
+    ],
+    keepInMind: "Java configuration offers a type-safe alternative to YAML. The `RouteLocatorBuilder` provides a fluent API to define routes, predicates (`.path()`), and filters (`.filters()`). This approach is more flexible for complex, dynamic routing logic and provides better compile-time checking."
+  },
+  {
+    title: "Built-in Predicates",
+    points: [
+      "```table",
+      "Predicate | Description | Example",
+      "Path | Match request path | Path=/api/users/**",
+      "Method | Match HTTP method | Method=GET,POST",
+      "Header | Match request header | Header=X-Request-Id, \\d+",
+      "Query | Match query parameter | Query=version, v2",
+      "Host | Match host header | Host=api.example.com",
+      "Before/After | Match time window | After=2023-01-01T00:00:00Z",
+      "Cookie | Match cookie value | Cookie=session, abc123",
+      "```"
+    ],
+    keepInMind: "Predicates are the core of routing logic; they are the 'if' conditions that determine whether a request matches a route. You can match based on various attributes of the incoming HTTP request, and multiple predicates can be combined with AND logic for more specific routing rules."
+  },
+  {
+    title: "Built-in Filters",
+    points: [
+      "```table",
+      "Filter | Purpose | Example",
+      "AddRequestHeader | Add header to request | AddRequestHeader=X-User-Id, 123",
+      "AddResponseHeader | Add header to response | AddResponseHeader=X-Response-Time, 100ms",
+      "StripPrefix | Remove path segments | StripPrefix=2 (/api/users → /)",
+      "PrefixPath | Add path prefix | PrefixPath=/v1",
+      "RewritePath | Rewrite request path | RewritePath=/api/(?<segment>.*), /${segment}",
+      "RequestRateLimiter | Rate limiting | RequestRateLimiter with Redis",
+      "CircuitBreaker | Fault tolerance | CircuitBreaker with Hystrix",
+      "```"
+    ],
+    keepInMind: "Filters are the 'actions' applied to a request or response after a route matches. They allow you to modify headers, rewrite paths, implement rate limiting, or apply circuit breakers. Filters can be applied globally to all routes or specifically to a single route for fine-grained control."
+  },
+  {
+    title: "Authentication Filter",
+    points: [
+      "```java",
+      "@Component",
+      "public class AuthenticationFilter implements GatewayFilter {",
+      "    ",
+      "    @Override",
+      "    public Mono<Void> filter(ServerWebExchange exchange, ",
+      "                             GatewayFilterChain chain) {",
+      "        ServerHttpRequest request = exchange.getRequest();",
+      "        ",
+      "        if (!request.getHeaders().containsKey(\"Authorization\")) {",
+      "            ServerHttpResponse response = exchange.getResponse();",
+      "            response.setStatusCode(HttpStatus.UNAUTHORIZED);",
+      "            return response.setComplete();",
+      "        }",
+      "        ",
+      "        // Validate JWT token",
+      "        String token = request.getHeaders().getFirst(\"Authorization\");",
+      "        if (!isValidToken(token)) {",
+      "            ServerHttpResponse response = exchange.getResponse();",
+      "            response.setStatusCode(HttpStatus.FORBIDDEN);",
+      "            return response.setComplete();",
+      "        }",
+      "        ",
+      "        return chain.filter(exchange);",
+      "    }",
+      "}",
+      "```"
+    ],
+    keepInMind: "This custom filter shows how to implement authentication. It checks for the `Authorization` header. If it's missing, it returns a 401 Unauthorized error. If present, it validates the token. If the token is invalid, it returns a 403 Forbidden error. Otherwise, it allows the request to proceed down the filter chain."
+  },
+  {
+    title: "Rate Limiting",
+    points: [
+      "**Redis-based Rate Limiter:**",
+      "```yaml",
+      "spring:",
+      "  cloud:",
+      "    gateway:",
+      "      routes:",
+      "      - id: user-service",
+      "        uri: lb://user-service",
+      "        predicates:",
+      "        - Path=/api/users/**",
+      "        filters:",
+      "        - name: RequestRateLimiter",
+      "          args:",
+      "            redis-rate-limiter.replenishRate: 10",
+      "            redis-rate-limiter.burstCapacity: 20",
+      "            key-resolver: \"#{@userKeyResolver}\"",
+      "```",
+      "**Key Resolver:**",
+      "```java",
+      "@Bean",
+      "public KeyResolver userKeyResolver() {",
+      "    return exchange -> exchange.getRequest().getHeaders()",
+      "        .getFirst(\"X-User-Id\");",
+      "}",
+      "```"
+    ],
+    keepInMind: "Rate limiting protects your APIs from being overwhelmed. The `RequestRateLimiter` filter uses a token bucket algorithm. `replenishRate` is the number of requests allowed per second, and `burstCapacity` is the maximum number of requests allowed in a burst. The `key-resolver` determines how to group requests for rate limiting (e.g., by user ID or IP address)."
+  },
+  {
+    title: "Circuit Breaker Integration",
+    points: [
+      "**Dependencies:**",
+      "```xml",
+      "<dependency>",
+      "    <groupId>org.springframework.cloud</groupId>",
+      "    <artifactId>spring-cloud-starter-circuitbreaker-reactor-resilience4j</artifactId>",
+      "</dependency>",
+      "```",
+      "**Configuration:**",
+      "```yaml",
+      "spring:",
+      "  cloud:",
+      "    gateway:",
+      "      routes:",
+      "      - id: user-service",
+      "        uri: lb://user-service",
+      "        predicates:",
+      "        - Path=/api/users/**",
+      "        filters:",
+      "        - name: CircuitBreaker",
+      "          args:",
+      "            name: userServiceCB",
+      "            fallbackUri: forward:/fallback/users",
+      "```"
+    ],
+    keepInMind: "The Circuit Breaker pattern prevents a network or service failure from cascading. When the `user-service` becomes unavailable, the circuit breaker 'opens' and subsequent requests are immediately redirected to the `fallbackUri` without waiting for a timeout. This provides fault tolerance and graceful degradation."
+  },
+  {
+    title: "Global Filters",
+    points: [
+      "```java",
+      "@Component",
+      "public class LoggingGlobalFilter implements GlobalFilter, Ordered {",
+      "    ",
+      "    private static final Logger logger = LoggerFactory.getLogger(LoggingGlobalFilter.class);",
+      "    ",
+      "    @Override",
+      "    public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {",
+      "        ServerHttpRequest request = exchange.getRequest();",
+      "        logger.info(\"Request: {} {}\", request.getMethod(), request.getURI());",
+      "        ",
+      "        return chain.filter(exchange).then(Mono.fromRunnable(() -> {",
+      "            ServerHttpResponse response = exchange.getResponse();",
+      "            logger.info(\"Response: {}\", response.getStatusCode());",
+      "        }));",
+      "    }",
+      "    ",
+      "    @Override",
+      "    public int getOrder() {",
+      "        return -1; // Execute before other filters",
+      "    }",
+      "}",
+      "```"
+    ],
+    keepInMind: "Global filters apply to every route without needing to be explicitly configured on each one. This is perfect for cross-cutting concerns like logging, metrics, or security headers. The `getOrder` method controls the execution order, with lower numbers running first."
+  },
+  {
+    title: "API Gateway Alternatives",
+    points: [
+      "```table",
+      "Solution | Type | Best For",
+      "Spring Cloud Gateway | Java/Spring | Spring Boot microservices",
+      "Netflix Zuul | Java/Spring | Legacy Spring Cloud apps",
+      "Kong | Lua-based | Multi-language environments",
+      "Ambassador | Kubernetes-native | Cloud-native applications",
+      "AWS API Gateway | Managed service | AWS serverless architectures",
+      "Istio Gateway | Service mesh | Complex microservice meshes",
+      "NGINX Plus | Commercial proxy | High-performance requirements",
+      "```"
+    ],
+    keepInMind: "While Spring Cloud Gateway is a strong choice for Spring-based systems, the best tool depends on your architecture. Kong is great for polyglot environments, Ambassador is designed for Kubernetes, and AWS API Gateway is a fully managed service that integrates seamlessly with other AWS services. Choose based on your technology stack, performance requirements, and operational preferences."
+  },
+  {
+    title: "Best Practices",
+    points: [
+      "✅ Keep gateway stateless for scalability",
+      "✅ Implement proper error handling and fallbacks",
+      "✅ Use circuit breakers for fault tolerance",
+      "✅ Monitor gateway performance and health",
+      "✅ Implement request/response logging for debugging",
+      "✅ Use rate limiting to prevent abuse",
+      "❌ Don't put business logic in the gateway",
+      "❌ Don't make the gateway a single point of failure",
+      "❌ Don't ignore security best practices"
+    ],
+    note: "🧠 Interview tip: Explain API Gateway pattern benefits and trade-offs",
+    keepInMind: "API Gateway should be a thin layer focused on routing and cross-cutting concerns."
+  },
+  {
+    title: "API Gateway Summary",
+    points: [
+      "🚪 **Purpose** - Single entry point for microservices architecture",
+      "🎯 **Responsibilities** - Routing, auth, rate limiting, monitoring",
+      "🌊 **Spring Cloud Gateway** - Reactive, high-performance solution",
+      "🛣️ **Routing** - Predicates and filters for flexible request handling",
+      "🔒 **Security** - Centralized authentication and authorization",
+      "⚡ **Performance** - Rate limiting, circuit breakers, load balancing",
+      "🔧 **Alternatives** - Kong, Ambassador, AWS API Gateway, Istio",
+      "🔥 **Essential** for managing complexity in microservices architecture"
+    ],
+    note: "🧠 API Gateway centralizes cross-cutting concerns while enabling service autonomy",
+    keepInMind: "A well-designed API Gateway simplifies client interactions while providing operational control."
+  }
+];
