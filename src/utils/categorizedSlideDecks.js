@@ -113,6 +113,11 @@ export const categorizedSlideDecks = {
     description: "Docker, Jenkins, Git, Release Pipelines",
     slides: [
       {
+        key: 'jenkinsSlides',
+        title: 'Jenkins CI/CD Workflows',
+        description: 'Configuring and overseeing CI/CD workflows with Jenkins'
+      },
+      {
         key: 'dockerSlides',
         title: 'Docker & Dockerfile',
         description: 'Containerizing Spring Boot applications'
@@ -191,5 +196,16 @@ export const categorizedSlideDecks = {
     icon: "🎨",
     description: "React, Angular, Vue.js, HTML5, CSS3, JavaScript, TypeScript",
     slides: []
+  },
+  "Miscellaneous": {
+    icon: "📚",
+    description: "Additional topics, utilities, and reference materials",
+    slides: [
+      {
+        key: 'springComparisonSlides',
+        title: 'Spring vs Spring Boot vs Microservices',
+        description: 'Comparison of Spring Framework, Spring Boot, and Microservices architecture'
+      }
+    ]
   }
 };

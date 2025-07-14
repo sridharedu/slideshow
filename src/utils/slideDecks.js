@@ -124,5 +124,15 @@ export const slideDecks = {
         title: 'Configuration Management',
         description: 'Spring Cloud Config, externalized configuration, encryption, profiles',
         dataFile: 'configurationManagementSlides'
+    },
+    jenkinsSlides: {
+        title: 'Jenkins CI/CD Workflows',
+        description: 'Configuring and overseeing CI/CD workflows with Jenkins',
+        dataFile: 'jenkinsSlides'
+    },
+    springComparisonSlides: {
+        title: 'Spring vs Spring Boot vs Microservices',
+        description: 'Comparison of Spring Framework, Spring Boot, and Microservices architecture',
+        dataFile: 'springComparisonSlides'
     }
 };

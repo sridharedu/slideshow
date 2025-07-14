@@ -151,7 +151,7 @@ const SlideViewer = ({ slides }) => {
                         background: '#f3f4f6',
                         padding: '0.125rem 0.25rem',
                         borderRadius: '0.25rem',
-                        fontSize: '0.875em',
+                        fontSize: '1.05em',
                         fontFamily: 'Fira Code, monospace'
                     }}>
                         {codeMatch[2]}
@@ -201,7 +201,8 @@ const SlideViewer = ({ slides }) => {
                                         padding: "0.75rem",
                                         textAlign: "left",
                                         fontWeight: "600",
-                                        borderBottom: "2px solid #e2e8f0"
+                                        borderBottom: "2px solid #e2e8f0",
+                                        fontSize: "1.1rem"
                                     }}>
                                         {cell.trim()}
                                     </th>
@@ -214,7 +215,8 @@ const SlideViewer = ({ slides }) => {
                                     {row.split('|').map((cell, cellIdx) => (
                                         <td key={cellIdx} style={{
                                             padding: "0.75rem",
-                                            borderBottom: "1px solid #f1f5f9"
+                                            borderBottom: "1px solid #f1f5f9",
+                                            fontSize: "1.1rem"
                                         }}>
                                             {cell.trim()}
                                         </td>
@@ -237,7 +239,7 @@ const SlideViewer = ({ slides }) => {
                                 background: "#fafbfc",
                                 padding: "1.25rem",
                                 borderRadius: "8px",
-                                fontSize: "0.9rem",
+                                fontSize: "1.27rem",
                                 overflowX: "auto",
                                 fontFamily: "Fira Code, monospace",
                                 border: "1px solid #e2e8f0",
@@ -262,9 +264,9 @@ const SlideViewer = ({ slides }) => {
             } else {
                 output.push(
                     <div key={`text-${i}`} style={{
-                        fontSize: "1.125rem",
-                        marginBottom: "1rem",
-                        lineHeight: "1.7",
+                        fontSize: "1.5rem",
+                        marginBottom: "0.75rem",
+                        lineHeight: "1.6",
                         color: "#374151",
                         paddingLeft: "1.25rem"
                     }}>
@@ -294,12 +296,12 @@ const SlideViewer = ({ slides }) => {
         >
             <div
                 style={{
-                    maxWidth: "1050px",
-                    width: "100%",
+                    width: "95vw",
+                    height: "85vh",
                     background: "#fff",
                     borderRadius: "16px",
                     boxShadow: "0 10px 30px rgba(0,0,0,0.1)",
-                    padding: "3rem 4rem",
+                    padding: "2rem 3rem",
                     position: "relative"
                 }}
             >
@@ -318,9 +320,9 @@ const SlideViewer = ({ slides }) => {
                 </div>
                 <h2
                     style={{
-                        fontSize: "2.25rem",
+                        fontSize: "3.25rem",
                         fontWeight: "700",
-                        marginBottom: "2rem",
+                        marginBottom: "1.5rem",
                         color: "#1f2937"
                     }}
                 >
@@ -338,7 +340,7 @@ const SlideViewer = ({ slides }) => {
                         height: "fit-content"
                     }}>
                         <h4 style={{
-                            fontSize: "0.9rem",
+                            fontSize: "1.27rem",
                             fontWeight: "600",
                             color: "#495057",
                             marginBottom: "1rem",
@@ -359,7 +361,7 @@ const SlideViewer = ({ slides }) => {
                             padding: "1rem 1.25rem",
                             background: "#fef3c7",
                             color: "#92400e",
-                            fontSize: "0.95rem",
+                            fontSize: "1.32rem",
                             borderLeft: "4px solid #f59e0b",
                             borderRadius: "6px"
                         }}
